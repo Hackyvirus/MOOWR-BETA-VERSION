@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duty Saving Calculator - MOOWR Scheme</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .tooltip-container {
+        position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 250px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the icon */
+  left: 50%;
+  margin-left: -125px; /* Center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Arrow below the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when hovering over the container */
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: "Open Sans", "Open Sans Placeholder", sans-serif;
+      }
+      body {
+        background-color: #fafafa;
+      }
+
+      nav {
+        font-size: 22px;
+        align-content: center;
+        align-items: center;
+        background: linear-gradient(156deg, #25006e 18%, rgb(22, 0, 66) 84%);
+        display: flex;
+        flex: none;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        height: 130px;
+        justify-content: center;
+        overflow: hidden;
+        color: white;
+        padding: 0;
+        position: relative;
+        width: 100%;
+      }
+      nav h2 {
+        font-size: 32px;
+        width: 85%;
+        font-weight: 500;
+        text-align: center;
+      }
+      .hero {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 100px;
+        height: 450px;
+      }
+
+      .left {
+        width: 65%;
+        height: 55%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 32px;
+      }
+
+      .left h2 {
+        font-size: 32px;
+        text-align: left;
+        font-weight: 600;
+        color: #2b2727;
+        letter-spacing: -2px;
+        margin-top: 45px;
+      }
+
+      .left-bottom ol {
+        height: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 10px;
+        padding-left: 20px;
+        margin-left: 0;
+      }
+
+      .left-bottom ol li {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.5px;
+        line-height: 1.5em;
+        text-align: left;
+        color: #3d3d3d;
+      }
+
+      .right {
+        width: 30%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+      }
+
+      .right img {
+        width: 400px;
+      }
+
+      /* Duty Saving Calculator - MOOWR Scheme */
+      #title {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -2px;
+    text-align: start;
+    padding-left: 50px;
+    width: 100%;
+}
+
+      #capital-g {
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      #Calculator-container {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        margin: 25px 100px 0;
+        align-content: center;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 14px;
+        justify-content: flex-start;
+        overflow: hidden;
+        padding: 20px 10px 10px;
+        position: relative;
+        height: max-content;
+      }
+
+      .copital-goods-calculator,
+      .raw-materials-calculator {
+        border: 1px solid #e3e3e3;
+        border-radius: 10px;
+        flex: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0px;
+        height: min-content;
+        display: flex;
+        justify-content: start;
+        overflow: hidden;
+        height: 500px;
+        width: 100%;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.8px;
+        text-align: left;
+        color: #3d3d3d;
+      }
+
+      .raw-materials-calculator {
+        border: 1px solid #e3e3e3;
+        border-radius: 10px;
+        display: flex;
+        flex: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0px;
+        height: min-content;
+        justify-content: center;
+        overflow: hidden;
+        height: 360px;
+        width: 100%;
+      }
+
+      .individual-calculator {
+        border: 1px solid #e3e3e3;
+        /* border-radius: 10px; */
+        display: flex;
+        flex: none;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0px;
+        justify-content: center;
+        overflow: hidden;
+        height: max-content;
+        width: 100%;
+      }
+
+      .first-cap-div {
+        display: flex;
+        margin: 0 50px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      .first-cap-div button {
+        padding: 7px 26px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .fifty {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+      }
+
+      .active-btn {
+        color: #fff;
+        background-color: #1e3d9d;
+      }
+
+      .inactive-btn {
+        color: rgb(30, 61, 157);
+        background-color: #fafafa;
+      }
+
+      .btns {
+        display: flex;
+        width: 200px;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+      }
+
+      .btn1 {
+        border-radius: 10px 0 0 10px;
+        width: 100px;
+        padding: 10px 0px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+      }.input-q{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: start;
+    justify-content: center;
+      }
+
+      .btns a {
+        text-decoration: none;
+      }
+
+      .btn2 {
+        border-radius: 0 10px 10px 0;
+        width: 100px;
+        padding: 10px 0px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .second-cap-div,
+      .third-cap-div,
+      .fourth-cap-div,
+      .fifth-cap-div,
+      .second-raw-div,
+      .third-raw-div,
+      .fourth-raw-div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .fifth-cap-div{
+        justify-content: start;
+      }
+
+      .second-left,
+      .third-left,
+      .fourth-left,
+      .fifth-left,
+      .fifth-right,
+      .second-raw-left,
+      .third-raw-left,
+      .fourth-raw-left {
+        width: 48%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 100px;
+        padding: 10px 20px 10px 50px;
+        flex-wrap: nowrap;
+        gap: 20px;
+      }
+
+      .second-right,
+      .third-right,
+      .fourth-right,
+      .second-raw-right,
+      .third-raw-right,
+      .fourth-raw-right {
+        width: 48%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 100px;
+        flex-wrap: nowrap;
+        gap: 20px;
+      }
+      #first-left-input3,
+      #second-left-input2,
+      #third-left-input2,
+      #fourth-left-input2,
+      #fourth-right-input2,
+      #third-right-input2,
+      #second-right-input2,
+      #second-left-input3,
+      #first-right-input3,
+      #second-right-input3,
+      #first-right-input,
+      #second-left-input,
+      #second-right-input,
+      #third-right-input,
+      #third-left-input,
+      #fourth-left-input,
+      #fifth-left-input,
+      #ams,
+      #bms,
+      #cms,
+      #dms,
+      #ems,
+      #fms,
+      #gms,
+      #hms,
+      #ams2,
+      #bms2,
+      #cms2,
+      #dms2,
+      #ems2,
+      #fms2,
+      #gms2,
+      #hms2,
+      #fifth-right-input,
+      #fourth-right-input,
+      #second-raw-left-input,
+      #second-raw-right-input,
+      #third-raw-right-input,
+      #third-raw-left-input,
+      #fourth-raw-left-input,
+      #fourth-raw-right-input {
+        background: #fafafa;
+        border-color: #e0e0e0;
+        border-left-width: 1px;
+        border-radius: 10px;
+        border-right-width: 1px;
+        border-style: solid;
+        border-top-width: 1px;
+        font-family: "Open Sans";
+        letter-spacing: 0em;
+        line-height: 1.2em;
+        font-weight: 400;
+        color: #999999;
+        padding: 12px;
+        font-size: 14px;
+        width: 200px;
+      }
+      Calculator-container input:focus[type="text"] {
+        border: 1px solid red;
+        border: 0;
+        outline: 0;
+      }
+      .capital-g,
+      .raw-g,
+      .indi-g {
+        font-family: "Open Sans", "Open Sans Placeholder", sans-serif;
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      .capital-g {
+        margin-bottom: 5px;
+      }
+
+      .raw-g {
+        margin-top: 10px;
+      }
+
+      .indi-g {
+        margin-top: 15px;
+      }
+
+      svg {
+        cursor: pointer;
+      }
+.form-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+      .faq {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    width: max-content;
+    align-items: start;
+    margin: 0 100px;
+    margin-top: 30px;
+    gap: 42px;
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
+      .faq a {
+        text-decoration: none;
+        text-decoration: underline;
+        font-weight: 500;
+      }
+
+      /* table  */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table label {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 20px;
+        flex-direction: row-reverse;
+      }
+
+      table input[type="text"] {
+        height: 24px;
+        border: 0;
+        border-bottom-width: 0px;
+        border-bottom-style: none;
+        border-bottom-color: currentcolor;
+        border-bottom: 1px solid #ccc;
+      }
+
+      table input[type="text"]:focus {
+        border: 0;
+        border-bottom: 1px solid #ccc;
+        outline: 0;
+        text-align: center;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #1e3d9d;
+        color: white;
+        width: 13%;
+      }
+
+      input[type="text"]:disabled {
+        background-color: #f0f0f0;
+      }
+
+      .calculate-btn {
+        padding: 10px 20px;
+        background-color: #2b55d3;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 20px auto;
+      }
+
+      .calculate-btn:hover {
+        background-color: #1a3b8b;
+      }
+
+      .remove-btn {
+        padding: 5px 10px;
+        background-color: #ff4c4c;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .remove-btn:hover {
+        background-color: #d13232;
+      }
+
+      #addColumnBtn {
+        cursor: pointer;
+      }
+
+      /* Hide default checkbox */
+      input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #2b55d3;
+    border-radius: 4px;
+    cursor: pointer;
+    right: 12px;
+    top: 5px;
+    position: relative;
+    outline: none;
+    background-color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+      /* Add checkmark when checked */
+      input[type="checkbox"]:checked {
+        background-color: #2b55d3;
+        border-color: #2b55d3;
+      }
+
+      input[type="checkbox"]:checked::after {
+        content: "\2714";
+        /* Unicode checkmark */
+        font-size: 16px;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Add hover effect */
+      input[type="checkbox"]:hover {
+        border-color: #1a3b8b;
+      }
+
+      .drb {
+        margin: 0 100px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .drb.show {
+        display: flex;
+      }
+
+      /* input-data-table */
+      .input-data-table {
+       display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+#capitalGoodsTable td {
+    text-align: center;      
+    vertical-align: middle; 
+  }
+
+#capitalGoodsTable  .input-text, .input-check {
+    display: inline-block;
+  }
+.input-text{
+  width: 50%;
+}
+
+      @media (max-width: 1200px) {
+        .hero {
+          margin: 20px 30px;
+          flex-direction: column;
+          height: auto;
+          align-items: center;
+        }
+
+        .left,
+        .right {
+          width: 100%;
+        }
+
+        .left h2 {
+          font-size: 36px;
+          text-align: center;
+        }
+
+        .left-bottom ol li {
+          font-size: 20px;
+        }
+
+        .right img {
+          margin: auto;
+        }
+
+        #title {
+          text-align: center;
+          font-size: 38px;
+        }
+
+        #Calculator-container {
+          margin: 20px 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          font-size: 18px;
+          flex-direction: column;
+          height: auto;
+          padding: 20px 0;
+        }
+
+        nav h2 {
+          font-size: 32px;
+          width: 85%;
+          text-align: center;
+        }
+
+        .fifty {
+          gap: 20px;
+          display: flex;
+          flex-direction: row;
+          margin: 0px 17px;
+          
+        }
+        .fifty p{
+          text-align: justify;
+        }
+
+        .second-left {
+          height: 50px;
+          max-width: 20px 40px;
+        }
+
+        .hero {
+          margin: 0 20px;
+        }
+
+        .left h2 {
+          /* font-size: 24px; */
+        }
+
+        .left-bottom ol li {
+          /* font-size: 16px; */
+        }
+      }
+
+      @media (max-width: 576px) {
+        .left {
+          height: max-content;
+        }
+
+        .left h2 {
+          font-size: 28px;
+        }
+
+        .left-bottom ol {
+          height: max-content;
+        }
+
+        #title {
+          font-size: 37px;
+          font-weight: 500;
+          margin: 40px 30px;
+          text-align: center;
+        }
+
+        .left-bottom ol li {
+          font-size: 20px;
+        }
+
+        .right {
+          justify-content: center;
+        }
+
+        .right img {
+          max-width: 300px;
+        }
+
+        .btns {
+          margin-left: 0;
+        }
+
+        .first-cap-div p {
+          width: 49%;
+          font-size: 18px;
+          padding: 3px;
+          margin: 10px 0px;
+        }
+
+        .second-left,
+        .second-right {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          width: 100%;
+          padding: 0;
+          height: 50px;
+          align-items: center;
+          display: flex;
+          flex-direction: row;
+        }
+        .fifth-right{
+          width: 100%;
+          padding: 0;
+        }
+
+
+        .fifty {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .fifty p {
+          width: 80%;
+          text-align: start;
+        }
+      }
+
+      /* Duty Saving Calculator - Responsive Adjustments */
+      #Calculator-container {
+        /* margin: 25px 100px; */
+        padding: 20px 10px 10px 10px;
+      }
+
+      .copital-goods-calculator,
+      .raw-materials-calculator {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        font-size: 20px;
+      }
+
+      .individual-calculator {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      /* Responsive Adjustments for Calculator */
+      @media (max-width: 768px) {
+        .raw-materials-calculator {
+          height: 700px;
+        }
+
+        #Calculator-container {
+          margin: 25px 20px;
+        }
+
+        .first-cap-div {
+          margin: 0 20px;
+        }
+
+        .first-cap-div {
+          width: 85%;
+          margin: 22px auto;
+        }
+
+        .fifty {
+          gap: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+        }
+
+        .second-cap-div,
+        .third-cap-div,
+        .fourth-cap-div ,
+        .fifth-cap-div {
+          height: 200px;
+          margin: auto;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .second-raw-div,
+        .third-raw-div,
+        .fourth-raw-div {
+          display: flex;
+          justify-content: space-between;
+          width: 96%;
+          flex-direction: column;
+          margin: auto;
+        }
+
+        .second-left,
+        .third-left,
+        .fourth-left,
+        .second-right,
+        .fifth-left,
+        .third-right,
+        .fourth-right,
+        .second-raw-div,
+        .third-raw-div,
+        .fourth-raw-div {
+          width: 100%;
+          padding: 0;
+        }
+
+        .second-raw-left,
+        .second-raw-right,
+        .third-raw-left,
+        .third-raw-right,
+        .fourth-raw-left,
+        .fourth-raw-right {
+          width: 100%;
+          padding: 20px 40px;
+          height: 50px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .second-left,
+        .third-left,
+        .fourth-left,
+        .second-right,
+        .third-right,
+        .fourth-right {
+          /* flex-direction: column; */
+          align-items: flex-start;
+          justify-content: space-between;
+          flex-direction: row;
+        }
+
+        .fifty {
+          gap: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: start;
+          width: 50%;
+        }
+
+        .fifty p {
+          width: 90%;
+        }
+
+        .second-cap-div,
+        .third-cap-div,
+        .fourth-cap-div {
+          width: 100%;
+          flex-direction: column;
+          height: 180px;
+          justify-content: space-around;
+        }
+      }
+
+      /* Responsive table */
+      @media (max-width: 768px) {
+        table,
+        th,
+        td {
+          font-size: 14px;
+        }
+
+        table input[type="text"] {
+          height: 22px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        #first-left-input3, #second-left-input2, #third-left-input2, #fourth-left-input2, #fourth-right-input2, #third-right-input2, #second-right-input2, #second-left-input3, #first-right-input3, #second-right-input3, #first-right-input, #second-left-input, #second-right-input, #third-right-input, #third-left-input, #fourth-left-input, #fifth-left-input, #ams, #bms, #cms, #dms, #ems, #fms, #gms, #hms, #ams2, #bms2, #cms2, #dms2, #ems2, #fms2, #gms2, #hms2, #fifth-right-input, #fourth-right-input, #second-raw-left-input, #second-raw-right-input, #third-raw-right-input, #third-raw-left-input, #fourth-raw-left-input, #fourth-raw-right-input {
+    background: #fafafa;
+    border-color: #e0e0e0;
+    border-left-width: 1px;
+    border-radius: 10px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 1px;
+    font-family: "Open Sans";
+    letter-spacing: 0em;
+    line-height: 1.2em;
+    font-weight: 400;
+    color: #999999;
+    padding: 12px;
+    font-size: 14px;
+    width: 95px;
+}
+        table,
+        th,
+        td {
+          font-size: 12px;
+        }
+
+        table input[type="text"] {
+          height: 20px;
+        }
+      }
+
+      .calculate-btn {
+        padding: 10px 20px;
+        background-color: #2b55d3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+      }
+      /* Download Button Styling */
+      #report-download-btn {
+        background-color: #1e3d9d;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        margin: auto;
+        transition: background-color 0.3s ease;
+      }
+
+      #report-download-btn:hover {
+        background-color: #4000b2;
+      }
+
+      /* Modal Container */
+      .modal-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      /* Modal Box Styling */
+      .modal-box {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        max-width: 600px;
+        margin: 5% auto;
+        position: relative;
+        animation: slideUp 0.6s ease-in-out;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Modal Header */
+      .modal-title {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      /* Close Button */
+      .close-icon {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        color: #999;
+        cursor: pointer;
+      }
+
+      .close-icon:hover {
+        color: #333;
+      }
+
+      /* Form Styling */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        background-color: #f9f9f9;
+      }
+
+      .form-checkbox {
+        margin-right: 8px;
+      }
+
+      /* Submit Button */
+      .submit-btn {
+        background-color: #1e3d9d;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        width: 50%;
+        
+      }
+      #newsletter-opt-in{
+    right: 0;
+    top: 5px;
+    position: relative;
+
+      }
+      .submit-skip {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+}
+      .submit-btn:hover {
+        background-color: #4000b2;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #000;
+        font-weight: 500;
+      }
+
+      .form-input {
+        width: 80%;
+        padding: 12px 0 12px 20px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      #box-1,
+      #box-2,
+      #box-3,
+      #box-1-1,
+      #box-2-1 {
+        display: none;
+      }
+      #box-1-handler {
+        width: 200px;
+        height: 45px;
+        background: #1e3d9d;
+        border-radius: 10px;
+      }
+      .box-container {
+        display: flex;
+        justify-content: start;
+        gap: 30px;
+      }
+      .box {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.h2-div-container {
+    display: flex;
+    width: max-content;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 8px 10px;
+}
+.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.fourth-right .fifty{
+  text-align: center;
+}
+.buttons-container {
+    display: flex;
+    gap: 9px;
+}
+/* .gross, .indi {
+    width: 100px;
+    padding: 10px 0px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+} */
+.gross, .indi {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* .gross{
+  background-color: #2b55d3;
+}
+.gross:hover{
+  color: #2b55d3;
+  background-color: #fff;
+}
+.indi{
+  background-color: #fff;
+}
+.indi:hover{
+  color: #fff;
+  background-color: #2b55d3;
+} */
+.content{
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: max-content;
+}
+#first-gross-container,#second-gross-container,#first-indi-container,#second-indi-container{
+  display: none;
+}
+#capitalGoodsTable th, #capitalGoodsTable td {
+            width: 14.5%; /* Adjust if needed */
+        }
+ 
+        /* Mobile responsiveness */
+        @media (max-width: 1000px) {
+         table input[type="checkbox"] {
+    
+    right: -20px;
+    top: -15px;  
+}
+input[type="text"]:disabled {
+  position: relative;
+    top: 8px;
+    left: -9px;
+}
+           
+        }
+        @media (max-width: 900px) {
+          input[type="checkbox"] {
+    
+            right: 2px;
+            top: 2px;
+}
+input[type="text"]:disabled {
+  position: relative;
+        top: 3px;
+        left: -2px;
+}
+#first-indi-container {
+  overflow: scroll;
+}
+           
+        }
+        .skip-btn {
+    width: 62px;
+    padding: 1px 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    line-height: 14px;
+}
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <h2>Duty Saving Calculator - MOOWR Scheme</h2>
+    </nav>
+    <!-- Hero Section  -->
+    <div class="hero" data-aos="fade-up">
+      <div class="left" data-aos="fade-right">
+        <h2>Steps to use</h2>
+        <div class="left-bottom">
+          <ol type="1">
+            <li>
+              Guide to use
+              <strong
+                ><a href="/need-help.html" style="text-decoration: underline;"
+                  >Duty Saving Calculator</a
+                ></strong
+              >
+            </li>
+            <li>
+             
+              <strong><a href="/faq.html" style="text-decoration: underline;">FAQs</a></strong>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="right">
+        <img src="img/12.avif" data-aos="fade-left" alt="Calculator img" />
+      </div>
+    </div>
+    <!-- Duty Saving Calculator - MOOWR Scheme -->
+   
+    <!-- Capital Goods -->
+    <div id="Calculator-container">
+      <div id="title" data-aos="zoom-in">
+        <p>Duty Saving Calculator - MOOWR Scheme</p>
+      </div>
+      <div class="box">
+        <div class="h2-div-container">
+          <h2>Capital Goods</h2> <div class="buttons-container">
+            <div id="first-gross" class="gross">Gross</div>
+            <div id="first-indi" class="indi">Individual</div>
+          </div>
+        </div>
+        <div class="content"  id="first-gross-container">
+        <div>
+            <div class="second-cap-div" data-aos="fade-up">
+                <div class="second-left">
+                    <div class="fifty">
+                        <p>Gross value of import (CIF)</p><div class="tooltip-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">Total CIF (Cost, Insurance & Freight) value of all the capital goods to be imported.</span>
+</div>
+                    </div>
+                    <input type="text" name="" value="401250000" placeholder="1,00,00,000" id="second-left-input">
+                </div>
+                <div class="second-right">
+                    <div class="fifty">
+                        <p>Gross value of BCD</p> <div class="tooltip-container"><svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">Total amount of Basic Customs Duty (BCD) payable on the capital goods to be imported.</span>
+</div>
+                    </div> <input type="text" value="30093750" name="" placeholder="1,00,00,000" id="second-right-input">
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <div class="third-cap-div" data-aos="fade-up">
+                <div class="third-left">
+                    <div class="fifty">
+                        <p>Gross value of AIDC</p><div class="tooltip-container"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">If applicable, Total amount of Agriculture Infrastructure and Development Cess (AIDC) payable on the capital goods to be imported.</span>
+</div>
+                    </div> <input type="text" value="40125000"  name="" placeholder="1,00,00,000" id="third-left-input">
+                </div>
+                <div class="third-right">
+                    <div class="fifty">
+                        <p>Gross value of ADD </p> <div class="tooltip-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">If applicable, Total amount of Anti-Dumping Duty (ADD) payable on the capital goods to be imported.</span>
+</div>
+                    </div> <input type="text" value="40125000" name="" placeholder="1,00,00,000" id="third-right-input">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="fourth-cap-div" data-aos="fade-up">
+                <div class="fourth-left">
+                    <div class="fifty">
+                        <p>Gross value of IGST</p><div class="tooltip-container"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">Total amount of Integrated Goods and Services Tax (IGST) payable on the capital goods to be imported.</span>
+</div>
+                    </div> <input type="text" name="" placeholder="1,00,00,000" id="fourth-left-input">
+                </div>
+                <div class="fourth-right">
+                    <div class="fifty">
+                        <p>Intended period of use</p><div class="tooltip-container"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">The expected period of use of the capital goods.</span>
+</div>
+                    </div> <input type="text" name="" value="10" placeholder="10" id="fourth-right-input">
+                </div>
+            </div>
+            <div class="fifth-cap-div" data-aos="fade-up">
+                <div class="fifth-left">
+                    <div class="fifty">
+                        <p>Disposal of capital goods after end of useful life</p><div class="tooltip-container"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">Please select appropriate option,reagarding treatment of capital goods after end of useful life amongst 3 options</span>
+</div>
+                    </div> 
+                    <select id="fifth-left-input" autocomplete="off" class="input-11" name="Machine1">
+                      <option value="Sale in DTA">Sale in DTA</option>
+                      <option value="Destroy">Destroyed</option>
+                      <option value="Export">Export</option>
+                    </select>
+                </div>
+                <!-- <div class="fifth-right">
+                    <div class="fifty">
+                        <p>Gross SWS Amount </p> <div class="tooltip-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                            focusable="false" color="rgb(135, 135, 135)">
+                            <g color="rgb(135, 135, 135)" weight="regular">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                                </path>
+                            </g>
+                        </svg>      <span class="tooltip-text">The Gross SWS Amount refers to the total value of the Special Welfare Surcharge applied before any deductions or adjustments.</span>
+</div>
+                    </div> 
+                    <input type="text" placeholder="10,00,00,000" name="fifth-right-input"  id="fifth-right-input">
+                </div> -->
+    
+            </div>
+        </div>
+        </div>
+        <div class="content"  id="first-indi-container"> 
+          <table id="capitalGoodsTable" data-aos="fade-up">
+            <thead>
+              <tr>
+                <th>BCD rate (%)</th>
+                <th>Import value (CIF)</th>
+                <th>AIDC rate <br>(if applicable)</th>
+                <th>ADD rate <br>(if applicable)</th>
+                <th>IGST Amount</th>
+                <th>Disposal of capital goods after end of useful life</th>
+                <th>Intended period of Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <!-- <input type="checkbox" id="caaa" class="input-check" name="Assessable"> -->
+                  <label>
+                    <select name="two-point-five" id="">
+                      <option value="two-point">2.5%</option>
+                      <option value="two-point">5%</option>
+                      <option value="two-point">7.5%</option>
+                      <option value="two-point">10%</option>
+                      <option value="two-point">15%</option>
+                      <option value="two-point">20%</option>
+                      <option value="two-point">25%</option>
+                      <option value="two-point">others <input type="text" /></option>
+  
+                    </select>
+                  </label>    
+                </td>
+                <td>
+                  <input type="text" id="taaa" class="input-text" name="Assessable" value="100000" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox"  id="caidcab" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcab"  class="input-text" value="10" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddac"  class="input-check" name="addRate">
+                  <input type="text" id="tddac" class="input-text" value="10" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <!-- <input type="checkbox" id="cigstad" class="input-check" name="igstRate"> -->
+                  <input type="text" id="tigstad" value="18"  class="input-text" name="igstRateValue" >
+                </td>
+                <td><input type="text" id="aip" value="10" name="intendedPeriodOfUse"></td>
+                <td>  <select id="ams" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   5.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="caba"  class="input-check" name="Assessable" >
+                  <input type="text"  id="taba" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcbb" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcbb" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddbc" class="input-check" name="addRate">
+                  <input type="text" id="tddbc" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstbd" class="input-check" name="igstRate">
+                  <input type="text"  id="tigstbd"  class="input-text" name="igstRateValue" disabled>
+                </td>
+                <td><input type="text" id="bip" name="intendedPeriodOfUse"></td>
+                <td>  <select id="bms" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   7.5%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox"  id="caca" class="input-check" name="Assessable">
+                  <input type="text" id="taca" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox"  id="caidccb" class="input-check" name="aidcRate">
+                  <input type="text"  id="taidccb" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddcc" class="input-check" name="addRate">
+                  <input type="text" id="tddcc" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstcd" class="input-check" name="igstRate">
+                  <input type="text" id="tigstcd" class="input-text" name="igstRateValue" disabled>
+                </td>
+                <td><input type="text"  id="cip" name="intendedPeriodOfUse"></td>
+                <td>  <select id="cms" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   10.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="cada" class="input-check" name="Assessable">
+                  <input type="text" id="tada" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcdb" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcdb" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cdddc" class="input-check" name="addRate">
+                  <input type="text" id="tdddc" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstdd" class="input-check" name="igstRate">
+                  <input type="text" id="tigstdd" class="input-text" name="igstRateValue" disabled>
+                </td>
+                <td><input type="text"  id="dip" name="intendedPeriodOfUse"></td>
+                <td>  <select id="dms" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   15.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="caea" class="input-check" name="Assessable">
+                  <input type="text" id="taea" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidceb" class="input-check" name="aidcRate">
+                  <input type="text" id="taidceb" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddec" class="input-check" name="addRate">
+                  <input type="text" id="tddec" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigsted" class="input-check" name="igstRate">
+                  <input type="text" id="tigsted" class="input-text" name="igstRateValue" disabled>
+                </td>
+                <td><input type="text" id="eip" name="intendedPeriodOfUse"></td>
+                <td>  <select id="ems" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                  20.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="cafa" class="input-check" name="Assessable">
+                  <input type="text" id="tafa" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcfb" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcfb" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddfc" class="input-check" name="addRate">
+                  <input type="text" id="tddfc" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstfd" class="input-check" name="igstRate">
+                  <input type="text" id="tigstfd" class="input-text" name="igstRateValue" disabled>
+                </td>
+                <td><input type="text" id="fip" name="intendedPeriodOfUse"></td>
+                <td>  <select id="fms" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   25%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="caga" class="input-check" name="Assessable">
+                  <input type="text"  id="taga" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcgb" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcgb"  class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddgc" class="input-check" name="addRate">
+                  <input type="text" id="tddgc"  class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstgd" class="input-check" name="igstRate">
+                  <input type="text" id="tigstgd"  class="input-text" name="igstRateValue" disabled>
+                </td>
+                <td><input type="text" id="gip" name="intendedPeriodOfUse"></td>
+                <td>  <select id="gms" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Others
+                  </label>      
+                  <input id="userInputrate" type="text" class="input-text" name="Assessable">
+                </td>
+                <td>
+                  <input type="checkbox" id="caha" class="input-check" name="Assessable">
+                  <input type="text" id="taha" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidchb" class="input-check" name="aidcRate">
+                  <input type="text" id="taidchb" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddhc" class="input-check" name="addRate">
+                  <input type="text" id="tddhc" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigsthd" class="input-check" name="igstRate">
+                  <input type="text" id="tigsthd" class="input-text" name="igstRateValue" disabled>
+                </td>
+                <td><input type="text" id="hip" name="intendedPeriodOfUse"></td>
+                <td>  <select id="hms" autocomplete="off" class="input-11" name="Machine1">
+                  <option value="Sale in DTA">Sale in DTA</option>
+                  <option value="Waste Or Scrap">Waste Or Scrap</option>
+                  <option value="Destroy">Destroy</option>
+                  <option value="Export">Export</option>
+                </select></td>
+              </tr>
+            </tbody>
+          </table>
+          
+            
+         
+        </div>
+      </div>
+      <div class="box">
+        <div class="h2-div-container">
+          <h2>Raw Material</h2> <div class="buttons-container">
+            <div id="second-gross" class="gross">Gross</div>
+            <div id="second-indi" class="indi">Individual</div>
+          </div>
+        </div>
+        <div class="content" id="second-gross-container">
+           <div>
+    
+          <div class="second-cap-div" data-aos="fade-up">
+              <div class="second-left">
+                  <div class="fifty">
+                      <p>Gross value  of import (CIF) in first year</p><div class="tooltip-container">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                      </svg><span class="tooltip-text">CIF (Cost, Insurance & Freight) value of all the raw materials to be imported.</span></div>
+
+                  </div>
+                  <input type="text" name="" placeholder="1,00,00,000" id="second-left-input2">
+              </div>
+              <div class="second-right">
+                  <div class="fifty">
+                      <p>Gross value of BCD</p><div class="tooltip-container"> <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                      </svg>      <span class="tooltip-text">Total amount of Basic Customs Duty (BCD) payable on the raw materials to be imported.</span></div>
+
+                  </div> <input type="text" name="" placeholder="1,00,00,000" id="second-right-input2">
+              </div>
+          </div>
+
+      </div>
+      <div>
+          <div class="third-cap-div" data-aos="fade-up">
+              <div class="third-left">
+                  <div class="fifty">
+                      <p>Gross value of AIDC</p><div class="tooltip-container"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                      </svg>      <span class="tooltip-text">If applicable, Total amount of Agriculture Infrastructure and Development Cess (AIDC) payable on the raw materials to be imported.</span></div>
+
+                  </div> <input type="text" name="" placeholder="1,00,00,000" id="third-left-input2">
+              </div>
+              <div class="third-right">
+                  <div class="fifty">
+                      <p>Gross value of ADD </p> <div class="tooltip-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                      </svg>      <span class="tooltip-text">If applicable, Total amount of Anti-Dumping Duty (ADD) payable on the raw materials to be imported.</span></div>
+
+                  </div> <input type="text" name="" placeholder="1,00,00,000" id="third-right-input2">
+              </div>
+          </div>
+      </div>
+      <div>
+          <div class="fourth-cap-div" data-aos="fade-up">
+              <div class="fourth-left">
+                  <div class="fifty">
+                      <p>Gross value of IGST</p> <div class="tooltip-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                      </svg>      <span class="tooltip-text">Total amount of Integrated Goods and Services Tax (IGST) payable on the raw materials to be imported</span></div>
+
+                  </div> <input type="text" name="" placeholder="1,00,00,000" id="fourth-left-input2">
+              </div>
+      
+          </div>
+      </div></div>
+        <div class="content" id="second-indi-container">
+          <table id="rawmaterialTable" data-aos="fade-up">
+            <thead>
+              <tr>
+                <th>Percentage</th>
+                <th>Assessable Value</th>
+                <th>AIDC rate</th>
+                <th>ADD Rate</th>
+                <th>IGST Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <label>
+                   2.5%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="caaa2" class="input-check" name="Assessable">
+                  <input type="text" id="taaa2" value="10000" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox"  id="caidcab2" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcab2"value="10"  class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddac2"  class="input-check" name="addRate">
+                  <input type="text" id="tddac2" value="10" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstad2" class="input-check" name="igstRate">
+                  <input type="text" id="tigstad2" value="18"  class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   5.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="caba2"  class="input-check" name="Assessable" >
+                  <input type="text"  id="taba2" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcbb2" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcbb2" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddbc2" class="input-check" name="addRate">
+                  <input type="text" id="tddbc2" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstbd2" class="input-check" name="igstRate">
+                  <input type="text"  id="tigstbd2"  class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   7.5%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox"  id="caca2" class="input-check" name="Assessable">
+                  <input type="text" id="taca2" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox"  id="caidccb2" class="input-check" name="aidcRate">
+                  <input type="text"  id="taidccb2" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddcc2" class="input-check" name="addRate">
+                  <input type="text" id="tddcc2" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstcd2" class="input-check" name="igstRate">
+                  <input type="text" id="tigstcd2" class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   10.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="cada2" class="input-check" name="Assessable">
+                  <input type="text" id="tada2" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcdb2" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcdb2" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cdddc2" class="input-check" name="addRate">
+                  <input type="text" id="tdddc2" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstdd2" class="input-check" name="igstRate">
+                  <input type="text" id="tigstdd2" class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   15.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="caea2" class="input-check" name="Assessable">
+                  <input type="text" id="taea2" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidceb2" class="input-check" name="aidcRate">
+                  <input type="text" id="taidceb2" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddec2" class="input-check" name="addRate">
+                  <input type="text" id="tddec2" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigsted2" class="input-check" name="igstRate">
+                  <input type="text" id="tigsted2" class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                  20.0%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="cafa2" class="input-check" name="Assessable">
+                  <input type="text" id="tafa2" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcfb2" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcfb2" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddfc2" class="input-check" name="addRate">
+                  <input type="text" id="tddfc2" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstfd2" class="input-check" name="igstRate">
+                  <input type="text" id="tigstfd2" class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                   25%
+                  </label>      
+                </td>
+                <td>
+                  <input type="checkbox" id="caga2" class="input-check" name="Assessable">
+                  <input type="text"  id="taga2" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidcgb2" class="input-check" name="aidcRate">
+                  <input type="text" id="taidcgb2"  class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddgc2" class="input-check" name="addRate">
+                  <input type="text" id="tddgc2"  class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigstgd2" class="input-check" name="igstRate">
+                  <input type="text" id="tigstgd2"  class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Others
+                  </label>      
+                  <input type="text" id="userInputrate2" class="input-text" name="Assessable">
+                </td>
+                <td>
+                  <input type="checkbox" id="caha2" class="input-check" name="Assessable">
+                  <input type="text" id="taha2" class="input-text" name="Assessable" disabled>
+                </td>
+                <td  >
+                  <input type="checkbox" id="caidchb2" class="input-check" name="aidcRate">
+                  <input type="text" id="taidchb2" class="input-text" name="aidcRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cddhc2" class="input-check" name="addRate">
+                  <input type="text" id="tddhc2" class="input-text" name="addRateValue" disabled>
+                </td>
+                <td>
+                  <input type="checkbox" id="cigsthd2" class="input-check" name="igstRate">
+                  <input type="text" id="tigsthd2" class="input-text" name="igstRateValue" disabled>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+      <div class="box"></div>
+        <div class="h2-div-container">
+          <h2>Common questions</h2>
+        </div>
+        <div class="content" id="third-gross-container"> 
+      <div>
+        <div class="second-cap-div" data-aos="fade-up">
+          <div class="second-left">
+              <div class="fifty">
+                  <p>Expected Project life cycle (in years)</p><div class="tooltip-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                      style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                      focusable="false" color="rgb(135, 135, 135)">
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                          <path
+                              d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                          </path>
+                      </g>
+                  </svg><span class="tooltip-text">CIF (Cost, Insurance & Freight) value of all the raw materials to be imported.</span></div>
+
+              </div>
+              <input type="text" name="" placeholder="10" id="second-left-input2">
+          </div>
+          <div class="second-right">
+              <div class="fifty">
+                  <p>Expected Annual Growth (%)</p><div class="tooltip-container"> <svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                      focusable="false" color="rgb(135, 135, 135)">
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                          <path
+                              d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                          </path>
+                      </g>
+                  </svg>      <span class="tooltip-text">Total amount of Basic Customs Duty (BCD) payable on the raw materials to be imported.</span></div>
+
+              </div> <input type="text" name="" placeholder="5%" id="second-right-input2">
+          </div>
+      </div>
+          <div class="second-cap-div" data-aos="fade-up">
+            <div class="second-left">
+              <div class="fifty">
+                <p>Expected rate of interest on working capital (Default 9%):</p>
+                <div class="tooltip-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                      style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                      focusable="false" color="rgb(135, 135, 135)">
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                          <path
+                              d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                          </path>
+                      </g>
+                  </svg>
+                  <span class="tooltip-text"> Anticipated interest rate applied to funds used for day-to-day operations.</span>
+                </div>
+              </div>
+              <input type="text" value="9" name="" placeholder="9" id="first-left-input3">
+            </div>
+            
+              <div class="second-right">
+                  <div class="fifty">
+                      <p>Time gap in utilisation of GST (input tax credit)</p> 
+                      <div class="tooltip-container">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                       </svg>
+                      <span class="tooltip-text">Average no. of days after which IGST payed on imported goods is utilised for payment of monthly GST liability.</span>
+                      </div>
+                  </div>
+                   <input type="text" value="35" name="" placeholder="35" id="first-right-input3">
+              </div>
+          </div>
+
+      </div>
+      <div>
+          <div class="third-cap-div" data-aos="fade-up">
+              <div class="third-left">
+                  <div class="fifty">
+                      <p>Gross annual value of RoDTEP</p> 
+                      <div class="tooltip-container">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                      </svg>
+                      <span class="tooltip-text">Total amount of RoDTEP receivable on goods to be exported.</span>
+                    </div>
+                  </div> <input type="text" name="" placeholder="1,00,00,000" id="second-left-input3">
+              </div>
+              <div class="third-right">
+                  <div class="fifty">
+                      <p>Gross annual value of All Industry drawback</p> 
+                      <div class="tooltip-container">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                          style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                          focusable="false" color="rgb(135, 135, 135)">
+                          <g color="rgb(135, 135, 135)" weight="regular">
+                              <path
+                                  d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                              </path>
+                          </g>
+                      </svg>
+                      <span class="tooltip-text">Total amount of All Industry Rate of Drawback receivable on goods to be exported.</span>
+              </div>
+                  </div> <input type="text" value="0.5" name="" placeholder="1,00,00,000" id="second-right-input3">
+              </div>
+          </div>
+          <div class="fourth-raw-div">
+            <div class="fourth-right">
+              <div class="fifty">
+                  <p>Time taken for conversion of raw material (in no. of days)</p> 
+                  <div class="tooltip-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                      style="user-select: none; width: 15px; height: 15px; display: inline-block; fill: rgb(135, 135, 135); color: rgb(135, 135, 135); flex-shrink: 0;"
+                      focusable="false" color="rgb(135, 135, 135)">
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                          <path
+                              d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z">
+                          </path>
+                      </g>
+                  </svg>
+                  <span class="tooltip-text">No. of days required from import of raw materials till the resultant finished goods are sold.</span></div>
+              </div> <input type="text" value="60" name="" placeholder="60" id="fourth-right-input2">
+          </div>
+          </div>
+      </div>
+      <button id="calculate" class="calculate-btn">Calculate</button>
+
+    </div>
+      </div>
+    </div>
+    <div class="drb">
+      <button id="report-download-btn" class="animated-btn">
+        Download Report
+      </button>
+    </div>
+    <div class="faq">
+      <a href="/need-help.html">Need Help?</a>
+      <a href="/need-help.html">Instruction Manual</a>
+      <a href="/faq.html">FAQs</a>
+    </div>
+    <!-- Download Report Button -->
+
+    <!-- Custom Feedback Modal -->
+    
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  </body>
+</html>

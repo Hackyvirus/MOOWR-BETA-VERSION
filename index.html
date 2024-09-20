@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Intro to MOOWR</title>
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", "Open Sans Placeholder", sans-serif;
+}
+.disc {
+  padding: 15px 0;
+}
+.main-container {
+  display: flex;
+  background: linear-gradient(357deg, #25006e 0%, rgb(22, 0, 66) 100%);
+  height: 460px;
+  overflow: hidden;
+  position: relative;
+  padding: 150px 100px 0;
+}
+
+#logo {
+  width: 145px;
+  height: 32px;
+}
+
+.left-main {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 50px;
+}
+
+.left-main-div {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.title-container {
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+
+.left-main-div p {
+  letter-spacing: -0.02em;
+  line-height: 1.4em;
+  color: rgb(219, 219, 219);
+  width: 569px;
+  font-weight: 500;
+  font-size: 17px;
+  height: 40px;
+}
+.title-container h2{
+  color: rgb(255, 255, 255);
+}
+
+.right-main {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.right-main i {
+  position: relative;
+  top: 100px;
+  right: -37px;
+  font-size: 27px;
+  color: white;
+  font-weight: 600;
+}
+.right-main img {
+  width: 263px;
+  rotate: -13deg;
+  position: relative;
+  top: -30px;
+}
+.accept-checkbox {
+  width: 90%;
+  padding: 14px 0;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* model  */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90dvh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: -2% auto;
+  display: none;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 1000px;
+  position: relative;
+}
+
+.modal-header {
+  font-size: 24px;
+  margin-bottom: 10px;
+  background: #5b5c60;
+  padding: 14px 0;
+  border-radius: 10px 10px 0 0;
+  text-align: left;
+  font-weight: 700;
+  color: #fff;
+  padding-left: 15px;
+}
+
+.modal-body {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #606060;
+  overflow-y: auto;
+  max-height: 500px;
+  padding: 0px 20px;
+}
+.modal-body li {
+  margin-left: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.modal-footer button {
+  background-color: #25006e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.modal-footer button:hover {
+  background-color: #25006e;
+}
+
+.modal-footer .decline-btn {
+  background-color: #f44336;
+}
+
+.modal-footer .decline-btn:hover {
+  background-color: #e53935;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+.intro {
+  margin: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.intro p {
+  letter-spacing: -0.02em;
+  line-height: 1.4em;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.intro h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.87);
+  letter-spacing: -0.12px;
+}
+
+/* main  */
+
+.button {
+  background: #af40ff;
+  padding: 14px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.3s;
+  z-index: 1;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 12px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button-6 {
+  background-image: linear-gradient(to left, #f7971e, #ffd200);
+  box-shadow: 0 4px 15px 0 #f7971e66;
+  overflow: hidden;
+  width: 200px;
+}
+
+.button-6:hover:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.button-6:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 12px;
+  background-color: #8bc34a;
+  background-image: linear-gradient(to left, #670ae0, #4307cf);
+  transition: all 0.3s ease;
+}
+
+.button-6:active {
+  box-shadow: unset;
+}
+
+@media (max-width: 1200px) {
+  .main-container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .left-main-div {
+    align-items: center;
+  }
+
+  .left-main,
+  .right-main {
+    width: 100%;
+    text-align: center;
+  }
+
+  .right-main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .right-main img {
+    padding-right: 0;
+    width: 400px;
+    height: 400px;
+  }
+
+  .left-main-div h2 {
+    font-size: 28px;
+  }
+
+  .left-main-div p {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 15px;
+  }
+
+  .left-main-div {
+    align-items: center;
+  }
+
+  .left-main-div h2 {
+    font-size: 24px;
+  }
+
+  .left-main-div p {
+    font-size: 15px;
+  }
+
+  .right-main {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .right-main img {
+    padding: 0;
+    width: 370px;
+  }
+
+  .intro {
+    margin: 20px 30px;
+  }
+
+  .intro h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 10px;
+  }
+
+  .intro {
+    margin: 20px 30px;
+  }
+
+  .left-main-div {
+    align-items: center;
+  }
+
+  .left-main-div h2 {
+    font-size: 22px;
+  }
+
+  .left-main-div p {
+    font-size: 14px;
+  }
+
+  .right-main img {
+    height: 80%;
+    width: 80%;
+  }
+
+  .intro h1 {
+    font-size: 24px;
+  }
+
+  .step {
+    margin: 16px 0;
+    padding: 0 8px;
+  }
+
+  .intro p {
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+.number-visitor {
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: start;
+  background: linear-gradient(357deg, #25006e 0%, rgb(22, 0, 66) 100%);
+  padding: 10px;
+  border-radius: 5px;
+  height: 125px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 10px 100px;
+  align-items: center;
+  gap: 10px;
+}
+.visited-btn {
+  background-image: linear-gradient(to left, #f7971e, #ffd200);
+  box-shadow: 0 4px 15px 0 #f7971e66;
+  overflow: hidden;
+  width: 150px;
+  padding: 10px 11px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.visited-p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+main {
+  padding: 20px;
+}
+
+.intro {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.intro h2 {
+  margin-top: 0;
+}
+
+.steps {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.steps p {
+  letter-spacing: -0.02em;
+  line-height: 1.4em;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.step a {
+  text-decoration: none;
+  color: #333;
+}
+
+.step {
+  margin: 35px 0;
+  padding: 0 25px;
+}
+
+.step li {
+  margin-left: 20px;
+}
+
+.step h3 {
+  margin-bottom: 10px;
+}
+
+.button {
+  background: #af40ff;
+  padding: 14px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.3s;
+  z-index: 1;
+  color: #000;
+  cursor: pointer;
+  border-radius: 12px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button-4 {
+  background: linear-gradient(357deg, #25006e 0%, rgb(22, 0, 66) 100%);
+  background-size: 200% auto;
+}
+
+.button-4:hover {
+  background-position: right center;
+  box-shadow: 0 2px 7px 0 #3a4e91;
+}
+
+.calculate-now {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-6 {
+  background-image: linear-gradient(to left, #f7971e, #ffd200);
+  box-shadow: 0 4px 15px 0 #f7971e66;
+  overflow: hidden;
+  width: 200px;
+}
+
+.button-6:hover:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.button-6:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 12px;
+  background-color: #8bc34a;
+  background-image: linear-gradient(to left, #670ae0, #4307cf);
+  transition: all 0.3s ease;
+}
+
+.button-6:active {
+  box-shadow: unset;
+}
+
+#steps-to-use {
+  margin: 0 100px;
+}
+
+    </style>
+    <!-- <link rel="stylesheet" href="common.css" /> -->
+  </head>
+
+  <body>
+    <div id="termsModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">Terms of use & disclaimers</div>
+        <div class="modal-body">
+          <p>
+            By visiting this website, you agree to abide by the terms of use and
+            disclaimers outlined herein. If you do not agree, you must
+            immediately cease using this website.
+          </p>
+
+          <h3>1. Proprietary Rights</h3>
+          <p>
+            This website and the services available on the website are the
+            proprietary property of Optitax Consulting LLP, a Limited Liability
+            Partnership registered in India.
+          </p>
+
+          <h3>2. General Terms</h3>
+          <p>
+            2.1. All materials contained on this website are protected by
+            applicable copyright and trademark laws. Unauthorized use of these
+            materials is strictly prohibited and will be prosecuted to the
+            fullest extent of the law.
+          </p>
+          <p>
+            2.2. Optitax allows the use of this website and its materials on a
+            free-of-cost basis to the public.
+          </p>
+
+          <h3>3. Use License</h3>
+          <p>
+            3.1. This website provides a facility to use the product decision
+            matrix and other products fully developed by Optitax.
+          </p>
+          <p>
+            3.2. Permission is granted to print the report generated by the
+            decision matrix solely for the purpose of evaluating a business
+            proposal. This license is granted free of charge and does not
+            constitute a transfer of title. Under this license, you are
+            expressly prohibited from:
+          </p>
+          <ul>
+            <li>
+              a. Attempting to copy, decompile, or reverse engineer any software
+              contained on Optitax's website;
+            </li>
+            <li>
+              b. Removing any copyright or other proprietary notations from the
+              decision matrix;
+            </li>
+            <li>
+              c. Attempting to access https://optitaxs.com or the decision
+              matrix by any means other than standard browser applications;
+            </li>
+            <li>
+              d. Transferring or mirroring https://optitaxs.com or the decision
+              matrix to another server or website.
+            </li>
+          </ul>
+
+          <h3>4. Disclaimer</h3>
+          <p>
+            4.1. The materials, including the Decision Matrix Report on
+            Optitax's website, are provided on an 'as is' basis, without any
+            guarantees or warranties of any kind.
+          </p>
+          <p>
+            4.2. Optitax expressly disclaims all warranties, whether express or
+            implied, including but not limited to implied warranties of
+            merchantability, fitness for a particular purpose, and
+            non-infringement of intellectual property rights or other violations
+            of rights.
+          </p>
+          <p>
+            4.3. Optitax makes no representations or warranties regarding the
+            accuracy, likely results, or reliability of the use of the materials
+            on its website or on any websites linked to this site.
+          </p>
+          <p>
+            4.4. Optitax does not guarantee the correctness, accuracy, or
+            reliability of any data uploaded by users on its website. Users are
+            solely responsible for the content they upload.
+          </p>
+
+          <h3>5. Accuracy of Materials</h3>
+          <p>
+            5.1. The materials appearing on https://optitaxs.com or any linked
+            sites may include technical, typographical, or photographic errors.
+            Optitax does not warrant that any of the materials are accurate,
+            complete, or current.
+          </p>
+          <p>
+            5.2. Optitax reserves the right to make changes to the materials
+            contained on https://optitaxs.com at any time without notice.
+            Optitax does not commit to updating the materials.
+          </p>
+
+          <h3>6. Liability</h3>
+          <p>
+            6.1. Under no circumstances shall Optitax or its suppliers be liable
+            for any damages (including, but not limited to, damages for loss of
+            data or profit, or due to business interruption) arising from the
+            use or inability to use the materials on Optitax's website, even if
+            Optitax or an authorized representative has been notified orally or
+            in writing of the possibility of such damages.
+          </p>
+          <p>
+            6.2. Some jurisdictions do not allow limitations on implied
+            warranties or the exclusion or limitation of liability for
+            consequential or incidental damages; these limitations may not apply
+            to you. In such jurisdictions, Optitax's liability is limited to the
+            greatest extent permitted by law.
+          </p>
+
+          <h3>7. Privacy</h3>
+          <p>
+            7.1. Optitax is committed to protecting your privacy. All personal
+            information collected through this website will be handled in
+            accordance with our Privacy Policy, which complies with relevant
+            data protection and privacy laws.
+          </p>
+          <p>
+            7.2. By using this website, you consent to the collection, use, and
+            storage of your personal information as described in our Privacy
+            Policy.
+          </p>
+
+          <h3>8. Governing Law</h3>
+          <p>
+            8.1. These terms and conditions are governed by and construed in
+            accordance with the laws of the State of Maharashtra, India.
+          </p>
+          <p>
+            8.2. Any disputes arising out of or relating to these terms and
+            conditions, the use of Optitax's website, or the products or
+            services provided shall be resolved exclusively in the courts
+            located in Pune, Maharashtra, India. By using this website, you
+            agree to submit to the jurisdiction of these courts for such
+            purposes.
+          </p>
+
+          <h3>9. Severability</h3>
+          <p>
+            If any provision of these terms is found to be unenforceable or
+            invalid, the remaining provisions will continue to be in full force
+            and effect.
+          </p>
+
+          <h3>10. Entire Agreement</h3>
+          <p>
+            10.1. These terms constitute the entire agreement between you and
+            Optitax regarding the use of the website and supersede all prior
+            agreements and understandings, whether written or oral, regarding
+            such use.
+          </p>
+
+          <h3>11. Changes to Terms of Use</h3>
+          <p>
+            Optitax reserves the right to revise these terms of use at any time
+            without notice. By using this website, you agree to be bound by the
+            current version of these terms of use.
+          </p>
+
+          <p>
+            By accessing or using Optitax's website, you acknowledge that you
+            have read, understood, and agree to be bound by these terms and
+            conditions.
+          </p>
+          <p class="accept-checkbox">
+            <input type="checkbox" id="checkbox" autocomplete="off" />
+            <strong>I agree to these terms</strong
+            >
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button id="acceptBtn">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="left-main">
+        <!-- <img src="img/logo.svg" id="logo" alt="logo" /> -->
+        <div class="left-main-div">
+          <div class="title-container">
+         
+            <h2>Duty Saving Calculator - <br>MOOWR Scheme</h2>
+          </div>
+          <p>Calculates net profit or loss upon opting for MOOWR scheme</p>
+          <a class="button button-6" id="calculate-now">Calculate Now</a>
+        </div>
+      </div>
+      <div class="right-main">
+        <i>Brought to you by the authors of </i>
+        <img src="image.png" alt="tax Calculater" />
+      </div>
+    </div>
+    <div class="intro">
+      <h1>Background</h1>
+      <p>
+        <strong
+          >Manufacturing & Other Operations in Warehouse Regulations
+          (MOOWR)</strong
+        >
+        allows import of capital goods including used ones without upfront
+        payment of duties of customs. The scheme does not mandate any export
+        obligation & is particularly suitable for businesses having major
+        domestic sales with nil or marginal exports. Customs duty is payable
+        when such capital goods are sold in DTA after the useful life is over.
+        Also, no duty is payable if such goods are
+        retained/re-exported/destroyed.
+      </p>
+      <p>
+        Further, units having substantial raw material imports can accrue
+        savings in working capital costs by way of deferment of Customs duties
+        on imports.
+      </p>
+      <p>
+        However, a MOOWR unit is not eligible for export incentives viz. <strong> Remission of duties & taxes on export products (RoDTEP)</strong>
+        & <strong>All Industry Rate of duty drawback (‘AIR’)</strong>. Operating as a regular
+        unit availing AIR is more beneficial when majority of the raw materials
+        used in export goods are domestically sourced.
+      </p>
+    </div>
+    <div class="number-visitor">
+      <p class="visited-p">
+        Optitax’s MOOWR decision matrix/Duty Saving Calculator factors above
+        aspects & provides a broad-level analysis which will enable the user to
+        take a considered decision.
+      </p>
+      <p class="visited-btn">Visitor Count: 1000</p>
+    </div>
+    <script>
+      document.getElementById("calculate-now").addEventListener("click", () => {
+        modal.style.display = "block";
+       document.querySelector(".modal-content").style.display = "block";
+      });
+      document.getElementById("acceptBtn").addEventListener("click", () => {
+        if (document.getElementById("checkbox").checked) {
+          window.location.href = "calculator.html";
+        } else {
+          alert("Please accept the terms and conditions");
+        }
+      });
+      var modal = document.getElementById("termsModal");
+      var acceptBtn = document.getElementById("acceptBtn");
+      var declineBtn = document.getElementById("declineBtn");
+      var closeBtn = document.getElementsByClassName("close")[0];
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+        window.location.href = "https://optitaxs.com";
+      };
+
+      acceptBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+    </script>
+  </body>
+</html>
