@@ -775,7 +775,7 @@ async function updatePDFAndDownload(
   value6,
   value7
 ) {
-  const url = "http://127.0.0.1:5500/test.pdf";
+  const url = "https://hackyvirus.github.io/MOOWR-BETA-VERSION/test.pdf";
 
   const existingPdfBytes = await fetch(url).then((res) => res.arrayBuffer());
 
