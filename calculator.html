@@ -12,6 +12,9 @@
       rel="stylesheet"
     />
     <style>
+      a{
+        text-decoration: none;
+      }
       * {
         padding: 0;
         box-sizing: border-box;
@@ -32,7 +35,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 10px;
-        height: 190px;
+        height: 300px;
         justify-content: center;
         overflow: hidden;
         color: white;
@@ -41,11 +44,11 @@
         width: 100%;
       }
       nav h1 {
-        font-size: 32px;
-        width: 85%;
-        font-weight: 500;
-        text-align: center;
-      }
+    font-size: 37px;
+    width: max-content;
+    font-weight: 500;
+    text-align: center;
+}
 
       /* Hero section */
       .hero-section {
@@ -53,29 +56,27 @@
     justify-content: space-between;
     align-items: center;
     margin: 20px 100px;
+    color: white;
+    width: 100%;
 }
 .hero-section .left-div {
+  width: 33%;
     flex: none;
-    padding: 20px 20px;
-    width: 50%;
-    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    gap: 50px;
-    border: 1px solid #ddd;
     box-sizing: border-box;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-      .left-bottom ol {
-        height: 170px;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        gap: 10px;
-        padding-left: 20px;
-      }
+.left-bottom ol {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
       .left-bottom ol li {
         margin-bottom: 10px;
         font-size: 18px;
@@ -83,28 +84,26 @@
         letter-spacing: -0.5px;
         line-height: 1.5em;
         text-align: left;
-        color: #3d3d3d;
       }
       .left-div h2 {
         font-size: 34px;
         text-align: left;
         font-weight: 600;
-        color: #2b2727;
+
         letter-spacing: -2px;
         margin-top: 45px;
       }
 
       .right-div{
         width: 48%;
-        height: 400px;
+        height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       }
       .hero-section .right-div img {
-        max-width: 400px;
+        max-width: 300px;
         height: auto;
 
       }
@@ -119,7 +118,6 @@
         margin: 20px 0;
       }
       #main {
-    padding: 0 15px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -127,6 +125,7 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin: 25px 100px 25px;
     height: max-content;
+    padding: 10px;
 }
 
       /* Buttons in the main section */
@@ -214,7 +213,6 @@
         align-items: center;
         height: 100px;
         flex-wrap: nowrap;
-        min-width: 390px;
         gap: 20px;
         margin: auto;
       }
@@ -225,7 +223,6 @@
         align-items: center;
         height: 100px;
         flex-wrap: nowrap;
-        min-width: 390px;
         gap: 20px;
         margin: auto;
       }
@@ -235,7 +232,6 @@
       .third-right,
       .fourth-right {
         width: 48%;
-        min-width: 390px;
         display: flex;
         justify-content: start;
         align-items: center;
@@ -250,7 +246,6 @@
         display: flex;
         flex-direction: row;
         justify-content: start;
-        /* white-space: nowrap; */
         width: 50%;
       }
       .fifty p {
@@ -310,6 +305,8 @@
       #second-left-input,
       #second-right-input,
       #second-left-input3,
+      #domestic-sales,
+      #export-sales,
       #second-right-input3,
       #second-left-input2,
       #second-right-input2,
@@ -320,6 +317,7 @@
       #third-right-input3,
       #fourth-left-input,
       #fourth-right-input3,
+      #sgd,#cwd, #sgd2,#cwd2,
       select {
         background: #fafafa;
         border-color: #e0e0e0;
@@ -333,7 +331,7 @@
         letter-spacing: 0em;
         line-height: 1.2em;
         font-weight: 400;
-        max-width: 180px;
+        
         padding: 12px;
         font-size: 14px;
         flex-grow: 1; /* Take the remaining space in the container */
@@ -366,17 +364,17 @@
       #capital-goods-next, #capital-goods-next2,#raw-materials-next,#raw-materials-next2,.preview-container, #download-report{
         display: none;
       }
-      #cap-quw0,
-      #raw-que0,#common-que , #cap-que,
-      #cap-table,
-      #raw-que,
-      #raw-table{
-        border: 1px solid #ddd;
-        padding: 0 15px;
-      }
+      #cap-quw0, #raw-que0, #common-que, #cap-que, #cap-table, #raw-que, #raw-table {
+    border: 1px solid #ddd;
+    width: 100%;
+    margin: auto;
+}
       #common-questions-container {
-        display: block;
-      }
+    display: block;
+    padding-left: 10px;
+    width: 100%;
+}
+
       .table-title {
         display: block;
         font-size: 30px;
@@ -427,11 +425,14 @@
 
       /* Preview section */
       .preview-container {
-        padding: 20px;
-        border: 1px solid #ddd;
-        margin: 10px 100px;
-        height: 800px;
-      }
+    padding: 20px;
+    border: 1px solid #ddd;
+    height: 800px;
+    width: 98%;
+    margin: auto;
+    color: red;
+    border-radius: 5px;
+}
       .faq {
         display: flex;
         justify-content: space-around;
@@ -610,6 +611,18 @@ th {
         background-color: #4000b2;
       }
 
+      #infor {
+    display: none;
+    font-size: 13px;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+#infor ul{
+  padding-left: 24px;
+
+}
       /* Animations */
       @keyframes fadeIn {
         from {
@@ -752,7 +765,13 @@ textarea:focus {
 .form-group {
   margin-bottom: 15px;
 }
-
+.form-group2 {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
 .form-label {
   display: block;
   font-weight: bold;
@@ -851,6 +870,9 @@ textarea:focus {
     font-size: 22px;
   }
 
+  #title{
+    font-size: 2.2rem;
+  }
   .submit-skip {
     gap: 15px;
   }
@@ -866,7 +888,7 @@ textarea:focus {
   .feedback-form {
     max-width: 600px;
     padding: 25px;
-    height: auto; /* Adjust height to content on desktop */
+    height: 100%; /* Adjust height to content on desktop */
   }
 
   .form-title {
@@ -885,14 +907,13 @@ textarea:focus {
     }
 }
 
-@media screen and (max-width: 768px) {
-   
-}
-
 
       /* Responsive Design */
 @media (max-width: 1024px) {
-        
+  nav{
+    height: max-content;
+  }
+
   h1 {
     font-size: 2.25rem;
   }
@@ -902,25 +923,25 @@ textarea:focus {
   }
   .hero-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 15px;
     margin: 0px 30px;
     height: auto;
-    align-items: center;
     justify-content: start;
-    align-items: center;
+    align-items: start;
 }
 
 
   .left-div, .right-div {
     justify-content: center;
     display:flex;
-    width: max-content;
+    width: 100%;
     margin-bottom: 20px;
     height: max-content;
   }
   .hero-section .left-div{
     height: max-content;
+    width: 100%;
   }
   .left-bottom ol{
     height: auto;
@@ -928,39 +949,42 @@ textarea:focus {
 
   .left-div h2 {
     font-size: 36px;
-    text-align: center;
+    text-align: start;
   }
   .left-bottom ol li{
-    font-size: 20px;
+    font-size: 18px;
   }
-
   #main {
-    padding: 10px;
+    margin: 0 42px;
     align-items: center;
+}
+
+
+
+  /* #main h2 {
+    text-align: center; */
+   #title{
+    font-size: 2.2rem;
   }
 
-  #main h2 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
   .first-cap-div, .second-cap-div, .third-cap-div, .fourth-cap-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     flex-direction: column;
 }
 .first-left, .second-left, .third-left, .fourth-left {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
-    min-width: 390px;
     flex-wrap: nowrap;
     gap: 20px;
 }
 .first-right, .second-right, .third-right, .fourth-right {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -968,17 +992,15 @@ textarea:focus {
     flex-wrap: nowrap;
     gap: 20px;
 }
-#copital-goods-container,#raw-materials-container{
+#copital-goods-container, #raw-materials-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     width: 100%;
+    padding-left: 10px;
 }
 
-  .fifty {
-    width: 48%;
-  }
 
   .input-11 {
     /* width: 100%; */
@@ -997,29 +1019,39 @@ textarea:focus {
   }
 
   .hero-section {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    margin: 0;
     padding: 10px 0;
 }
 
 .left-div, .right-div {
     width: 100%;
-    margin-bottom: 10px;
   }
 
   .left-div h2 {
     font-size: 1.5rem;
     text-align: center;
   }
+  .hero-section h1{
+    width: 100%;
+    font-size: 23px;
+  }
 
   .left-bottom ol {
-    padding-left: 10px;
+    padding-left: 20px;
   }
   #main {
-    margin: 25px 50px 25px;
+    margin: 0 30px;
+    align-items: start;
   }
 
   #main h2 {
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
+    text-align: left;
+  }
+  #title{
+    font-size: 2rem;
+    padding-left: 10PX;
   }
 
   h2.table-title {
@@ -1027,7 +1059,8 @@ textarea:focus {
   }
 
   .preview-container{
-    margin: 10px 30px;
+    margin: 0;
+    height: 500px;
   }
 
   .input-11 {
@@ -1038,9 +1071,11 @@ textarea:focus {
 
   .btns {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-bottom: 15px;
-  }
+    width: 75%;
+    justify-content: start;
+}
 
   .left-btn, .right-btn {
     width: 100%;
@@ -1068,7 +1103,7 @@ textarea:focus {
     gap: 20px;
     justify-content: center;
     margin-bottom: 20px;
-    max-width: 100%;
+    max-width: 90%;
 }
 
 
@@ -1089,23 +1124,83 @@ textarea:focus {
 }
 #cap-quw0, #raw-que0, #common-que {
     border: 1px solid #ddd;
-    padding: 0 15px;
     width: 100%;
 }
+.preview-container {
+  height: 500px;
+    margin: 0;
+}
 .calculate-conatiner ,#copital-goods-container,#raw-materials-container,#common-que{
-    max-width: 90%;
+    max-width: 100%;
     margin: auto;
 }
 #common-questions-container{
     max-width: 100%;
 }
-.first-left ,.second-left, .third-left,.first-right ,.second-right, .third-right,.fourth-left,.fourth-right{
+.fifty {
+    width: 90%;
+    height: max-content;
+    line-height: 30px;
+    padding-left: 10px;
+}
+.first-left, .second-left, .third-left, .first-right, .second-right, .third-right, .fourth-left, .fourth-right {
     display: flex;
     flex-direction: column;
     height: max-content;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: start;
+    width: 90%;
+    margin: 15px auto;
+    align-items: start;
+}
+#first-left-input,       #domestic-sales,
+#export-sales, #first-right-input, #first-left-input3, #first-right-input3, #first-left-input2, #first-right-input2, #second-left-input, #second-right-input, #second-left-input3, #second-right-input3, #second-left-input2, #second-right-input2, #third-left-input, #third-left-input2, #third-right-input, #third-left-input3, #third-right-input3, #fourth-left-input, #fourth-right-input3, #sgd, #cwd, #sgd2, #cwd2, select {
+    background: #fafafa;
+    border-color: #e0e0e0;
+    border-left-width: 1px;
+    border-radius: 10px;
+    text-align: center;
+    border-right-width: 1px;
+    border-style: solid;
+    border-top-width: 1px;
+    font-family: "Open Sans";
+    letter-spacing: 0em;
+    line-height: 1.2em;
+    font-weight: 400;
+    padding: 12px;
+    font-size: 14px;
+    flex-grow: 1;
+    padding-left: 10px;
+    width: 75%;
+}
+#common-questions-container {
+    display: block;
+    padding-left: 10px;
+    width: 100%;
+}
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 95%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    z-index: 9999;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.feedback-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    overflow-y: auto;
 }
 }
 .right-div img{
@@ -1140,35 +1235,39 @@ textarea:focus {
   <body>
     <main>
       <nav>
-        <h1>Duty Saving Calculator - MOOWR Scheme</h1>
-      </nav>
-      <div class="hero-section">
-        <div class="left-div">
-          <h2>Steps to use</h2>
-          <div class="left-bottom">
-            <ol type="1">
-              <li>
-                Guide to use
-                <strong
-                  ><a href="need-help.html" style="text-decoration: underline"
-                    >Duty Saving Calculator</a
-                  ></strong
-                >
-              </li>
-              <li>
-                <strong
-                  ><a href="faq.html" style="text-decoration: underline"
-                    >FAQs</a
-                  ></strong
-                >
-              </li>
-            </ol>
+        <div class="hero-section">
+          <div class="left-div">
+            <h2>Steps to use</h2>
+            <div class="left-bottom">
+              <ol type="1">
+                <li>
+                  Guide to use
+                  <strong
+                    ><a href="https://optitaxs.com/moowr-need-help/" style="text-decoration: underline"
+                      >Duty Saving Calculator</a
+                    ></strong
+                  >
+                </li>
+                <li>
+                  <strong
+                    ><a href="https://optitaxs.com/moowr-scheme-faqs/" style="text-decoration: underline"
+                      >FAQs</a
+                    ></strong
+                  >
+                </li>
+              </ol>
+            </div>
+          </div>
+          <h1>Duty Saving Calculator - MOOWR Scheme</h1>
+          <div class="right-div">
+            <!-- <img src="<?php echo get_template_directory_uri(); ?>/images/12.avif" onerror="this.onerror=null; this.src='logo.svg'" alti id="logo" alt="logo" /> -->
+            <img src="images/12.avif" alt="logo" />
           </div>
         </div>
-        <div class="right-div">
-          <img src="img/12.avif" alt="" />
-        </div>
-      </div>
+
+      
+      </nav>
+      
 
       <div id="main">
         <h2 id="title">Duty Saving Calculator - MOOWR Scheme</h2>
@@ -1178,6 +1277,14 @@ textarea:focus {
         </div>
         <div id="copital-goods-container">
           <h2 class="table-title">Capital Goods</h2>
+     <div id="infor">
+      <p>Please provide the information of import of the goods in individual lines considering the different customs duty rate structures (BCD, AIDC, ADD, IGST). To clarify :</p>
+      <ul>
+       <li>If out of three machines, two have the applicable BCD @10% and IGST @18%, but third machine has BCD @10% but IGST @28%, the values of two machines having same rate structure to be clubbed and entered as a single entry, whereas the values of third machine to be entered as a separate line item.
+         </li>
+         <li>Similarly, if two machines are being imported,one having BCD @5% and second having BCD @10%, with both having IGST @18%,due to varying rate structure, details of each machine to be entered as a separate line item</li>
+      </ul>
+     </div>
           <div id="cap-que">
             <div class="first-cap-div">
               <div class="first-left">
@@ -1214,9 +1321,9 @@ textarea:focus {
                 <input
                   type="text"
                   name=""
-                  value="401250000"
                   placeholder="1,00,00,000"
                   id="first-left-input"
+                  oninput="formatNumber('first-left-input')"
                 />
               </div>
               <div class="first-right">
@@ -1252,17 +1359,17 @@ textarea:focus {
                 </div>
                 <input
                   type="text"
-                  value="30093750"
                   name=""
                   placeholder="1,00,00,000"
                   id="first-right-input"
+                  oninput="formatNumber('first-right-input')"
                 />
               </div>
             </div>
             <div class="second-cap-div">
               <div class="second-left">
                 <div class="fifty">
-                  <p>Gross value of AIDC</p>
+                  <p>Gross value of AIDC (If applicable)</p>
                   <div class="tooltip-container">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1286,7 +1393,7 @@ textarea:focus {
                       </g>
                     </svg>
                     <span class="tooltip-text"
-                      >If applicable, Total amount of Agriculture Infrastructure
+                      >Total amount of Agriculture Infrastructure
                       and Development Cess (AIDC) payable on the capital goods
                       to be imported.</span
                     >
@@ -1294,15 +1401,15 @@ textarea:focus {
                 </div>
                 <input
                   type="text"
-                  value="40125000"
                   name=""
                   placeholder="1,00,00,000"
                   id="second-left-input"
+                  oninput="formatNumber('second-left-input')"
                 />
               </div>
               <div class="second-right">
                 <div class="fifty">
-                  <p>Gross value of ADD</p>
+                  <p>Gross value of ADD (If applicable)</p>
                   <div class="tooltip-container">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1333,10 +1440,10 @@ textarea:focus {
                 </div>
                 <input
                   type="text"
-                  value="40125000"
                   name=""
                   placeholder="1,00,00,000"
                   id="second-right-input"
+                  oninput="formatNumber('second-right-input')"
                 />
               </div>
             </div>
@@ -1374,10 +1481,10 @@ textarea:focus {
                 </div>
                 <input
                   type="text"
-                  value="40125000"
                   name=""
                   placeholder="1,00,00,000"
                   id="third-left-input"
+                  oninput="formatNumber('third-left-input')"
                 />
               </div>
               <div class="third-right">
@@ -1427,6 +1534,84 @@ textarea:focus {
                 
               </div>
             </div>
+            <div class="third-cap-div">
+              <div class="third-left">
+                <div class="fifty">
+                  <p>Safeguard Duty</p>
+                  <div class="tooltip-container">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      style="
+                        user-select: none;
+                        width: 17px;
+                        height: 17px;
+                        display: inline-block;
+                        fill: rgb(135, 135, 135);
+                        color: rgb(135, 135, 135);
+                        flex-shrink: 0;
+                      "
+                      focusable="false"
+                      color="rgb(135, 135, 135)"
+                    >
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                        <path
+                          d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span class="tooltip-text"
+                      >The expected period of use of the capital goods.</span
+                    >
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  name=""
+                  placeholder="10"
+                  id="sgd"
+                  oninput="formatNumber('sgd')"
+                />
+              </div>
+              <div class="third-right">
+                <div class="fifty">
+                  <p>Countervailing Duty</p>
+                  <div class="tooltip-container">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      style="
+                        user-select: none;
+                        width: 17px;
+                        height: 17px;
+                        display: inline-block;
+                        fill: rgb(135, 135, 135);
+                        color: rgb(135, 135, 135);
+                        flex-shrink: 0;
+                      "
+                      focusable="false"
+                      color="rgb(135, 135, 135)"
+                    >
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                        <path
+                          d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span class="tooltip-text"
+                      >The expected period of use of the capital goods.</span
+                    >
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  name=""
+                  placeholder="10"
+                  id="cwd"
+                  oninput="formatNumber('cwd')"
+                />
+              </div>
+            </div>
             <div class="fourth-cap-div">
               <div class="fourth-left">
                 <div class="fifty">
@@ -1460,13 +1645,14 @@ textarea:focus {
                 </div>
                 <input
                   type="text"
-                  value="10"
                   name=""
                   placeholder="10"
                   id="third-right-input"
+                  oninput="formatNumber('third-right-input')"
                 />
               </div>
             </div>
+          
           </div>
           <div id="cap-table"  class="table-wrapper">
             <table id="capitalGoodsTable">
@@ -1476,6 +1662,8 @@ textarea:focus {
                   <th>Import value (CIF)</th>
                   <th>AIDC rate <br />(if applicable)</th>
                   <th>ADD rate <br />(if applicable)</th>
+                  <th>Safegourd Duty<br />(if applicable)</th>
+                  <th>Countervailing Duty<br />(if applicable)</th>
                   <th>IGST Amount</th>
                   <th>Disposal of capital goods after end of useful life</th>
                   <th>Intended period of Use</th>
@@ -1487,7 +1675,7 @@ textarea:focus {
                     <label>
                       <select name="two-point-five" id="percentage-select1">
                         <option>Choose</option>
-                        <option value="2.5">2.5%</option>
+                    
                         <option value="5">5%</option>
                         <option value="7.5">7.5%</option>
                         <option value="10">10%</option>
@@ -1505,15 +1693,15 @@ textarea:focus {
                     </label>
                   </td>
                   <td>
-                    <input type="text" id="taaa" class="input-text" name="Assessable" />
+                    <input type="text" id="taaa" class="input-text" name="Assessable" oninput="formatNumber('taaa')" />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="taidcab"
                       class="input-text"
-                      value="10"
                       name="aidcRateValue"
+                      oninput="formatNumber('taidcab')"
                     />
                   </td>
                   <td>
@@ -1521,17 +1709,36 @@ textarea:focus {
                       type="text"
                       id="tddac"
                       class="input-text"
-                      value="10"
                       name="addRateValue"
+                      oninput="formatNumber('tddac')"
                     />
                   </td>
                   <td>
                     <input
                       type="text"
+                      id="sgda"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('sgda')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="cwda"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('cwda')"
+                    />
+                  </td>
+                  
+                  <td>
+                    <input
+                      type="text"
                       id="tigstad"
-                      value="18"
                       class="input-text"
                       name="igstRateValue"
+                      oninput="formatNumber('tigstad')"
                     />
                   </td>
         
@@ -1549,7 +1756,7 @@ textarea:focus {
                     </select>
                   </td>
                   <td>
-                    <input type="text" id="aip" value="10" name="intendedPeriodOfUse" style="display: none;" />
+                    <input type="text" id="aip"  oninput="formatNumber('aip')"  name="intendedPeriodOfUse" style="display: none;" />
                   </td>
                 </tr>
                 <tr>
@@ -1557,7 +1764,7 @@ textarea:focus {
                     <label>
                       <select name="two-point-five" id="percentage-select2">
                         <option>Choose</option>
-                        <option value="2.5">2.5%</option>
+                    
                         <option value="5">5%</option>
                         <option value="7.5">7.5%</option>
                         <option value="10">10%</option>
@@ -1575,15 +1782,15 @@ textarea:focus {
                     </label>
                   </td>
                   <td>
-                    <input type="text" id="taba" class="input-text" name="Assessable" />
+                    <input type="text" id="taba" oninput="formatNumber('taba')"   class="input-text" name="Assessable" />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="taidcbb"
                       class="input-text"
-                      value="10"
                       name="aidcRateValue"
+                      oninput="formatNumber('taidcbb')" 
                     />
                   </td>
                   <td>
@@ -1591,17 +1798,35 @@ textarea:focus {
                       type="text"
                       id="tddbc"
                       class="input-text"
-                      value="10"
                       name="addRateValue"
+                      oninput="formatNumber('tddbc')" 
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="sgdb"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('sgdb')" 
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="cwdb"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('cwdb')" 
                     />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="tigstbd"
-                      value="18"
                       class="input-text"
                       name="igstRateValue"
+                      oninput="formatNumber('tigstbd')" 
                     />
                   </td>
         
@@ -1619,7 +1844,7 @@ textarea:focus {
                     </select>
                   </td>
                   <td>
-                    <input type="text" id="bip" value="10" name="intendedPeriodOfUse" style="display: none;"/>
+                    <input type="text" id="bip" oninput="formatNumber('bip')"   name="intendedPeriodOfUse" style="display: none;"/>
                   </td>
                 </tr>
                 <tr>
@@ -1627,7 +1852,7 @@ textarea:focus {
                     <label>
                       <select name="two-point-five" id="percentage-select3">
                         <option>Choose</option>
-                        <option value="2.5">2.5%</option>
+                    
                         <option value="5">5%</option>
                         <option value="7.5">7.5%</option>
                         <option value="10">10%</option>
@@ -1645,15 +1870,15 @@ textarea:focus {
                     </label>
                   </td>
                   <td>
-                    <input type="text" id="taca" class="input-text" name="Assessable" />
+                    <input type="text" oninput="formatNumber('taca')"  id="taca" class="input-text" name="Assessable" />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="taidccb"
                       class="input-text"
-                      value="10"
                       name="aidcRateValue"
+                      oninput="formatNumber('taidccb')" 
                     />
                   </td>
                   <td>
@@ -1661,17 +1886,35 @@ textarea:focus {
                       type="text"
                       id="tddcc"
                       class="input-text"
-                      value="10"
                       name="addRateValue"
+                      oninput="formatNumber('tddcc')" 
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="sgdc"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('sgdc')" 
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="cwdc"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('cwdc')" 
                     />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="tigstcd"
-                      value="18"
                       class="input-text"
                       name="igstRateValue"
+                      oninput="formatNumber('tigstcd')" 
                     />
                   </td>
         
@@ -1689,7 +1932,7 @@ textarea:focus {
                     </select>
                   </td>
                   <td>
-                    <input type="text" id="cip" value="10" name="intendedPeriodOfUse" style="display: none;" />
+                    <input type="text" id="cip"   oninput="formatNumber('cip')"   name="intendedPeriodOfUse" style="display: none;" />
                   </td>
                 </tr>
                 <tr>
@@ -1697,7 +1940,7 @@ textarea:focus {
                     <label>
                       <select name="two-point-five" id="percentage-select4">
                         <option>Choose</option>
-                        <option value="2.5">2.5%</option>
+                    
                         <option value="5">5%</option>
                         <option value="7.5">7.5%</option>
                         <option value="10">10%</option>
@@ -1715,15 +1958,15 @@ textarea:focus {
                     </label>
                   </td>
                   <td>
-                    <input type="text" id="tada" class="input-text" name="Assessable" />
+                    <input type="text" id="tada"  oninput="formatNumber('tada')" class="input-text" name="Assessable" />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="taidcdb"
                       class="input-text"
-                      value="10"
                       name="aidcRateValue"
+                      oninput="formatNumber('taidcdb')"
                     />
                   </td>
                   <td>
@@ -1731,17 +1974,35 @@ textarea:focus {
                       type="text"
                       id="tdddc"
                       class="input-text"
-                      value="10"
                       name="addRateValue"
+                      oninput="formatNumber('tdddc')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="sgdd"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('sgdd')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="cwdd"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('cwdd')"
                     />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="tigstdd"
-                      value="18"
                       class="input-text"
                       name="igstRateValue"
+                      oninput="formatNumber('tigstdd')"
                     />
                   </td>
         
@@ -1759,7 +2020,7 @@ textarea:focus {
                     </select>
                   </td>
                   <td>
-                    <input type="text" id="dip" value="10" name="intendedPeriodOfUse" style="display: none;" />
+                    <input type="text" id="dip" name="intendedPeriodOfUse" oninput="formatNumber('dip')" style="display: none;" />
                   </td>
                 </tr>
                 <tr>
@@ -1767,7 +2028,7 @@ textarea:focus {
                     <label>
                       <select name="two-point-five" id="percentage-select5">
                         <option>Choose</option>
-                        <option value="2.5">2.5%</option>
+                    
                         <option value="5">5%</option>
                         <option value="7.5">7.5%</option>
                         <option value="10">10%</option>
@@ -1785,15 +2046,15 @@ textarea:focus {
                     </label>
                   </td>
                   <td>
-                    <input type="text" id="taea" class="input-text" name="Assessable" />
+                    <input type="text"  oninput="formatNumber('taea')" id="taea" class="input-text" name="Assessable" />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="taidceb"
                       class="input-text"
-                      value="10"
                       name="aidcRateValue"
+                      oninput="formatNumber('taidceb')"
                     />
                   </td>
                   <td>
@@ -1801,16 +2062,34 @@ textarea:focus {
                       type="text"
                       id="tddec"
                       class="input-text"
-                      value="10"
                       name="addRateValue"
+                      oninput="formatNumber('tddec')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="sgde"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('sgde')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="cwde"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('cwde')"
                     />
                   </td>
                   <td>
                     <input
                       type="text"
                       id="tigsted"
-                      value="18"
                       class="input-text"
+                      oninput="formatNumber('tigsted')"
                       name="igstRateValue"
                     />
                   </td>
@@ -1818,6 +2097,7 @@ textarea:focus {
                   <td>
                     <select
                       id="ems"
+
                       autocomplete="off"
                       class="input-11"
                       name="Machine1"
@@ -1829,7 +2109,7 @@ textarea:focus {
                     </select>
                   </td>
                   <td>
-                    <input type="text" id="eip" value="10" name="intendedPeriodOfUse" style="display: none;" />
+                    <input type="text"  oninput="formatNumber('eip')" id="eip" name="intendedPeriodOfUse" style="display: none;" />
                   </td>
                 </tr>
               </tbody>
@@ -1882,8 +2162,8 @@ textarea:focus {
                   type="text"
                   name=""
                   placeholder="1,00,00,000"
-                  value="200000000"
                   id="first-left-input2"
+                  oninput="formatNumber('first-left-input2')"
                 />
               </div>
               <div class="second-right">
@@ -1920,16 +2200,16 @@ textarea:focus {
                 <input
                   type="text"
                   name=""
-                  value="20000000"
                   placeholder="1,00,00,000"
                   id="first-right-input2"
+                  oninput="formatNumber('first-right-input2')"
                 />
               </div>
             </div>
             <div class="second-cap-div">
               <div class="second-left">
                 <div class="fifty">
-                  <p>Gross value of AIDC</p>
+                  <p>Gross value of AIDC (If applicable)</p>
                   <div class="tooltip-container">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1962,14 +2242,14 @@ textarea:focus {
                 <input
                   type="text"
                   name=""
-                  value="10000000"
                   placeholder="1,00,00,000"
                   id="second-left-input2"
+                  oninput="formatNumber('second-left-input2')"
                 />
               </div>
               <div class="second-right">
                 <div class="fifty">
-                  <p>Gross value of ADD</p>
+                  <p>Gross value of ADD (If applicable)</p>
                   <div class="tooltip-container">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -2000,10 +2280,88 @@ textarea:focus {
                 </div>
                 <input
                   type="text"
-                  value="2000000"
                   name=""
                   placeholder="1,00,00,000"
                   id="second-right-input2"
+                  oninput="formatNumber('second-right-input2')"
+                />
+              </div>
+            </div>
+            <div class="third-cap-div">
+              <div class="third-left">
+                <div class="fifty">
+                  <p>Safeguard Duty</p>
+                  <div class="tooltip-container">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      style="
+                        user-select: none;
+                        width: 17px;
+                        height: 17px;
+                        display: inline-block;
+                        fill: rgb(135, 135, 135);
+                        color: rgb(135, 135, 135);
+                        flex-shrink: 0;
+                      "
+                      focusable="false"
+                      color="rgb(135, 135, 135)"
+                    >
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                        <path
+                          d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span class="tooltip-text"
+                      >The expected period of use of the capital goods.</span
+                    >
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  name=""
+                  placeholder="10"
+                  id="sgd2"
+                  oninput="formatNumber('sgd2')"
+                />
+              </div>
+              <div class="third-right">
+                <div class="fifty">
+                  <p>Countervailing Duty</p>
+                  <div class="tooltip-container">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      style="
+                        user-select: none;
+                        width: 17px;
+                        height: 17px;
+                        display: inline-block;
+                        fill: rgb(135, 135, 135);
+                        color: rgb(135, 135, 135);
+                        flex-shrink: 0;
+                      "
+                      focusable="false"
+                      color="rgb(135, 135, 135)"
+                    >
+                      <g color="rgb(135, 135, 135)" weight="regular">
+                        <path
+                          d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <span class="tooltip-text"
+                      >The expected period of use of the capital goods.</span
+                    >
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  name=""
+                  placeholder="10"
+                  id="cwd2"
+                  oninput="formatNumber('cwd2')"
                 />
               </div>
             </div>
@@ -2041,13 +2399,14 @@ textarea:focus {
                 </div>
                 <input
                   type="text"
-                  value="40000000"
                   name=""
                   placeholder="1,00,00,000"
                   id="third-left-input2"
+                  oninput="formatNumber('third-left-input2')"
                 />
               </div>
             </div>
+          
           </div>
           <div id="raw-table"  class="table-wrapper">
             <table id="rawmaterialTable">
@@ -2058,6 +2417,8 @@ textarea:focus {
                   <th>AIDC rate (if applicable)</th>
                   <th>ADD Rate(if applicable)	</th>
                   <th>IGST Amount</th>
+                  <th>Safegourd Duty<br />(if applicable)</th>
+                  <th>Countervailing Duty<br />(if applicable)</th>
                 </tr>
               </thead>
               <tbody>
@@ -2066,7 +2427,7 @@ textarea:focus {
                         <label>
                           <select name="two-point-five" id="percentage-select6">
                             <option >Choose</option>
-                            <option value="2.5">2.5%</option>
+                        
                             <option value="5">5%</option>
                             <option value="7.5">7.5%</option>
                             <option value="10">10%</option>
@@ -2078,24 +2439,43 @@ textarea:focus {
                         </label>    
                       </td>
                       <td>
-                        <input type="text" id="taaa2" class="input-text" name="Assessable">
+                        <input type="text" id="taaa2"  oninput="formatNumber('taaa2')" class="input-text" name="Assessable">
                       </td>
                       <td  >
-                        <input type="text" id="taidcab2"  class="input-text" value="10" name="aidcRateValue">
+                        <input type="text" id="taidcab2" oninput="formatNumber('taidcab2')"  class="input-text" name="aidcRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tddac2" class="input-text" value="10" name="addRateValue">
+                        <input type="text" id="tddac2" oninput="formatNumber('tddac2')" class="input-text"  name="addRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tigstad2" value="18"  class="input-text" name="igstRateValue" >
+                        <input type="text" id="tigstad2" oninput="formatNumber('tigstad2')" class="input-text" name="igstRateValue" >
                       </td>
+                
+                  <td>
+                    <input
+                      type="text"
+                      id="sgdf"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('sgdf')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="cwdf"
+                      class="input-text"
+                      name="addRateValue"
+                      oninput="formatNumber('cwdf')"
+                    />
+                  </td>
                     </tr>
                   <tr>
                       <td>
                         <label>
                           <select name="two-point-five" id="percentage-select7">
                             <option >Choose</option>
-                            <option value="2.5">2.5%</option>
+                        
                             <option value="5">5%</option>
                             <option value="7.5">7.5%</option>
                             <option value="10">10%</option>
@@ -2107,16 +2487,34 @@ textarea:focus {
                         </label>    
                       </td>
                       <td>
-                        <input type="text" id="taba2" class="input-text" name="Assessable">
+                        <input type="text" id="taba2" class="input-text"    oninput="formatNumber('taba2')" name="Assessable">
                       </td>
                       <td  >
-                        <input type="text" id="taidcbb2"  class="input-text" value="10" name="aidcRateValue">
+                        <input type="text" id="taidcbb2"   oninput="formatNumber('taidcbb2')" class="input-text"name="aidcRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tddbc2" class="input-text" value="10" name="addRateValue">
+                        <input type="text" id="tddbc2"  oninput="formatNumber('tddbc2')" class="input-text" name="addRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tigstbd2" value="18"  class="input-text" name="igstRateValue" >
+                        <input type="text" id="tigstbd2"  oninput="formatNumber('tigstbd2')"  class="input-text" name="igstRateValue" >
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="sgdg"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('sgdg')"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="cwdg"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('cwdg')"
+                        />
                       </td>
                     </tr>
                   <tr>
@@ -2124,7 +2522,7 @@ textarea:focus {
                         <label>
                           <select name="two-point-five" id="percentage-select8">
                             <option >Choose</option>
-                            <option value="2.5">2.5%</option>
+                        
                             <option value="5">5%</option>
                             <option value="7.5">7.5%</option>
                             <option value="10">10%</option>
@@ -2136,16 +2534,34 @@ textarea:focus {
                         </label>    
                       </td>
                       <td>
-                        <input type="text" id="taca2" class="input-text" name="Assessable">
+                        <input type="text" id="taca2" class="input-text"  oninput="formatNumber('taca2')" name="Assessable">
                       </td>
                       <td  >
-                        <input type="text" id="taidccb2"  class="input-text" value="10" name="aidcRateValue">
+                        <input type="text" id="taidccb2"  class="input-text" oninput="formatNumber('taidccb2')"  name="aidcRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tddcc2" class="input-text" value="10" name="addRateValue">
+                        <input type="text" id="tddcc2" class="input-text" oninput="formatNumber('tddcc2')"  name="addRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tigstcd2" value="18"  class="input-text" name="igstRateValue" >
+                        <input type="text" id="tigstcd2"   class="input-text" oninput="formatNumber('tigstcd2')" name="igstRateValue" >
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="sgdh"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('sgdh')"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="cwdh"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('cwdh')"
+                        />
                       </td>
                     </tr>
                   <tr>
@@ -2153,7 +2569,7 @@ textarea:focus {
                         <label>
                           <select name="two-point-five" id="percentage-select9">
                             <option >Choose</option>
-                            <option value="2.5">2.5%</option>
+                        
                             <option value="5">5%</option>
                             <option value="7.5">7.5%</option>
                             <option value="10">10%</option>
@@ -2165,16 +2581,34 @@ textarea:focus {
                         </label>    
                       </td>
                       <td>
-                        <input type="text" id="tada2" class="input-text" name="Assessable">
+                        <input type="text" id="tada2" oninput="formatNumber('tada2')" class="input-text" name="Assessable">
                       </td>
                       <td  >
-                        <input type="text" id="taidcdb2"  class="input-text" value="10" name="aidcRateValue">
+                        <input type="text" id="taidcdb2" oninput="formatNumber('taidcdb2')"  class="input-text" name="aidcRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tdddc2" class="input-text" value="10" name="addRateValue">
+                        <input type="text" id="tdddc2" oninput="formatNumber('tdddc2')" class="input-text"  name="addRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tigstdd2" value="18"  class="input-text" name="igstRateValue" >
+                        <input type="text" id="tigstdd2" oninput="formatNumber('tigstdd2')"   class="input-text" name="igstRateValue" >
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="sgdi"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('sgdi')"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="cwdi"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('cwdi')"
+                        />
                       </td>
                     </tr>
                   <tr>
@@ -2182,7 +2616,7 @@ textarea:focus {
                         <label>
                           <select name="two-point-five" id="percentage-select10">
                             <option >Choose</option>
-                            <option value="2.5">2.5%</option>
+                        
                             <option value="5">5%</option>
                             <option value="7.5">7.5%</option>
                             <option value="10">10%</option>
@@ -2194,47 +2628,37 @@ textarea:focus {
                         </label>    
                       </td>
                       <td>
-                        <input type="text" id="taea2" class="input-text" name="Assessable">
+                        <input type="text" id="taea2" oninput="formatNumber('taea2')" class="input-text" name="Assessable">
                       </td>
                       <td  >
-                        <input type="text" id="taidceb2"  class="input-text" value="10" name="aidcRateValue">
+                        <input type="text" id="taidceb2" oninput="formatNumber('taidceb2')"  class="input-text"  name="aidcRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tddec2" class="input-text" value="10" name="addRateValue">
+                        <input type="text" id="tddec2" oninput="formatNumber('tddec2')" class="input-text"  name="addRateValue">
                       </td>
                       <td>
-                        <input type="text" id="tigsted2" value="18"  class="input-text" name="igstRateValue" >
+                        <input type="text" id="tigsted2" oninput="formatNumber('tigsted2')"   class="input-text" name="igstRateValue" >
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="sgdj"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('sgdj')" 
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          id="cwdj"
+                          class="input-text"
+                          name="addRateValue"
+                          oninput="formatNumber('cwdj')" 
+                        />
                       </td>
                     </tr>
-                  <tr>
-                      <td>
-                        <label>
-                          <select name="two-point-five" id="percentage-select11">
-                            <option >Choose</option>
-                            <option value="2.5">2.5%</option>
-                            <option value="5">5%</option>
-                            <option value="7.5">7.5%</option>
-                            <option value="10">10%</option>
-                            <option value="15">15%</option>
-                            <option value="20">20%</option>
-                            <option value="25">25%</option>
-                            <option value="others">others <input style="width:50%;;" id="other-percentage" class="input-select" type="text" /></option>
-                          </select>
-                        </label>    
-                      </td>
-                      <td>
-                        <input type="text" id="taaa" class="input-text" name="Assessable">
-                      </td>
-                      <td  >
-                        <input type="text" id="taidcab"  class="input-text" value="10" name="aidcRateValue">
-                      </td>
-                      <td>
-                        <input type="text" id="tddac" class="input-text" value="10" name="addRateValue">
-                      </td>
-                      <td>
-                        <input type="text" id="tigstad" value="18"  class="input-text" name="igstRateValue" >
-                      </td>
-                    </tr>
+                 
                
               </tbody>
             </table>
@@ -2278,6 +2702,83 @@ textarea:focus {
                           ></path>
                         </g></svg
                       ><span class="tooltip-text"
+                        >The default period of the project life cycle is presumed at 10 years.</span
+                      >
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="10"
+                    id="first-left-input3"
+                    oninput="formatNumber('first-left-input3')" 
+                  />
+                </div>
+                <div class="second-right">
+                  <div class="fifty">
+                    <p>Expected Annual Growth (%)</p>
+                    <div class="tooltip-container">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 256 256"
+                        style="
+                          user-select: none;
+                          width: 17px;
+                          height: 17px;
+                          display: inline-block;
+                          fill: rgb(135, 135, 135);
+                          color: rgb(135, 135, 135);
+                          flex-shrink: 0;
+                        "
+                        focusable="false"
+                        color="rgb(135, 135, 135)"
+                      >
+                        <g color="rgb(135, 135, 135)" weight="regular">
+                          <path
+                            d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"
+                          ></path>
+                        </g>
+                      </svg>
+                      <span class="tooltip-text"
+                        >The annual growth of raw material imports & sales is presumed at 5% per year. The calculation of net benefits is worked out accordingly.</span
+                      >
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="5%"
+                    oninput="formatNumber('first-right-input3')" 
+                    id="first-right-input3"
+                  />
+                </div>
+              </div>
+              <div class="first-cap-div">
+                <div class="first-left">
+                  <div class="fifty">
+                    <p>domestic Sales</p>
+                    <div class="tooltip-container">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 256 256"
+                        style="
+                          user-select: none;
+                          width: 17px;
+                          height: 17px;
+                          display: inline-block;
+                          fill: rgb(135, 135, 135);
+                          color: rgb(135, 135, 135);
+                          flex-shrink: 0;
+                        "
+                        focusable="false"
+                        color="rgb(135, 135, 135)"
+                      >
+                        <g color="rgb(135, 135, 135)" weight="regular">
+                          <path
+                            d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"
+                          ></path>
+                        </g></svg
+                      ><span class="tooltip-text"
                         >CIF (Cost, Insurance & Freight) value of all the raw
                         materials to be imported.</span
                       >
@@ -2287,12 +2788,13 @@ textarea:focus {
                     type="text"
                     name=""
                     placeholder="10"
-                    id="first-left-input3"
+                    id="domestic-sales"
+                    oninput="formatNumber('domestic-sales')" 
                   />
                 </div>
                 <div class="second-right">
                   <div class="fifty">
-                    <p>Expected Annual Growth (%)</p>
+                    <p>Export Sales</p>
                     <div class="tooltip-container">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -2324,8 +2826,9 @@ textarea:focus {
                   <input
                     type="text"
                     name=""
-                    placeholder="5%"
-                    id="first-right-input3"
+                    placeholder="10%"
+                    oninput="formatNumber('export-sales')" 
+                    id="export-sales"
                   />
                 </div>
               </div>
@@ -2365,9 +2868,9 @@ textarea:focus {
                   </div>
                   <input
                     type="text"
-                    value="9"
                     name=""
                     placeholder="9"
+                    oninput="formatNumber('second-left-input3')" 
                     id="second-left-input3"
                   />
                 </div>
@@ -2405,7 +2908,7 @@ textarea:focus {
                   </div>
                   <input
                     type="text"
-                    value="35"
+                    oninput="formatNumber('second-right-input3')" 
                     name=""
                     placeholder="35"
                     id="second-right-input3"
@@ -2449,6 +2952,7 @@ textarea:focus {
                     name=""
                     placeholder="1,00,00,000"
                     id="third-left-input3"
+                    oninput="formatNumber('third-left-input3')" 
                   />
                 </div>
                 <div class="third-right">
@@ -2484,10 +2988,10 @@ textarea:focus {
                   </div>
                   <input
                     type="text"
-                    value="0.5"
                     name=""
                     placeholder="1,00,00,000"
                     id="third-right-input3"
+                    oninput="formatNumber('third-right-input3')" 
                   />
                 </div>
               </div>
@@ -2527,10 +3031,10 @@ textarea:focus {
                   </div>
                   <input
                     type="text"
-                    value="60"
                     name=""
                     placeholder="60"
                     id="fourth-right-input3"
+                    oninput="formatNumber('fourth-right-input3')" 
                   />
                 </div>
               </div>
@@ -2538,69 +3042,61 @@ textarea:focus {
         <div class="calculate-conatiner">
           <button id="calculate" class="btn">Calculate</button>
           <div class="preview-container">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at
-            eligendi quod harum impedit praesentium maiores ipsam? Architecto,
-            repellendus dolore incidunt sapiente placeat laborum maxime illo
-            nihil ipsa, deserunt ea?
+          Please enter valid inputs and try again....
           </div>
           <button class="btn" id="download-report">Download Report</button>
         </div>
       </div>
     </main>
     <div class="faq">
-      <a href="need-help.html">Need Help?</a>
-      <a href="/need-help.html">Instruction Manual</a>
-      <a href="faq.html">FAQs</a>
+      <a href="https://optitaxs.com/moowr-need-help/">Need Help?</a>
+      <a href="https://optitaxs.com/moowr-scheme-faqs/">FAQs</a>
     </div>
     <div id="custom-feedback-modal" class="modal-container">
         <div class="modal-box">
-          <!-- <span id="modal-close-btn" class="close-icon">&times;</span>   -->
-          <form id="feedback-form" class="feedback-form">
+          <form action="https://docs.google.com/forms/d/e/1FAIpQLSe4a0T6nnQLs8Y45FcC8yPI5b9HPIH3olqr2Ggs3SPXQQNDqg/formResponse" id="feedback-form" post class="feedback-form">
             <h2 class="form-title">We'd Love Your Feedback!</h2>
           
             <!-- Name Field -->
-            <div class="form-group">
+            <div class="form-group2">
               <label for="user-name" class="form-label">Name</label>
               <input
                 type="text"
                 id="user-name"
-                name="user-name"
+                name="entry.122187081"
                 class="form-input"
                 placeholder="Enter your name"
                 required
               />
             </div>
           
-            <!-- Email Field -->
-            <div class="form-group">
+            <div class="form-group2">
               <label for="user-email" class="form-label">Email</label>
               <input
                 type="email"
                 id="user-email"
-                name="user-email"
+                name="entry.260455679"
                 class="form-input"
                 placeholder="Enter your email"
                 required
               />
             </div>
           
-            <!-- Feedback Experience Checkboxes -->
             <div class="form-group">
               <label class="form-label">How was your experience with MOOWR Utility?</label>
               <div class="input-q">
-                <label><input type="checkbox" name="experience" value="Great"> Great</label>
-                <label><input type="checkbox" name="experience" value="Good"> Good</label>
-                <label><input type="checkbox" name="experience" value="Average"> Average</label>
-                <label><input type="checkbox" name="experience" value="Needs Improvement"> Needs Improvement</label>
+                <label><input type="checkbox" name="entry.2127226797_sentinel" value="Great"> Great</label>
+                <label><input type="checkbox" name="entry.2127226797_sentinel" value="Good"> Good</label>
+                <label><input type="checkbox" name="entry.2127226797_sentinel" value="Average"> Average</label>
+                <label><input type="checkbox" name="entry.2127226797_sentinel" value="Needs Improvement"> Needs Improvement</label>
               </div>
             </div>
           
-            <!-- Feedback Textarea -->
             <div class="form-group">
               <label for="user-feedback" class="form-label">Additional Feedback</label>
               <textarea
                 id="user-feedback"
-                name="user-feedback"
+                name="entry.1834863445"
                 class="form-input"
                 rows="4"
                 placeholder="Share your thoughts..."
@@ -2608,31 +3104,948 @@ textarea:focus {
               ></textarea>
             </div>
           
-            <!-- Newsletter Opt-in -->
             <div class="form-group">
               <label for="newsletter-opt-in" class="form-label">Subscribe to our Newsletter?</label>
               <div class="checkbox-wrapper">
                 <input
                   type="checkbox"
                   id="newsletter-opt-in"
-                  name="newsletter-opt-in"
+                  name="entry.1684571852_sentinel"
                   class="form-checkbox"
                 />
                 <label for="newsletter-opt-in">Yes, I want to stay updated!</label>
               </div>
             </div>
           
-            <!-- Submit & Skip Options -->
             <div class="submit-skip">
               <div class="skip-btn" id="skip">Skip and Download</div>
-              <button type="submit" id="download" class="submit-btn">Submit & Download Report</button>
+              <button type="submit" id="submit-download" class="submit-btn">Submit & Download Report</button>
             </div>
+          
           </form>
           
           
         </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-    <script src="script.js"></script>
+<script>
+  function formatNumber(id) {
+    const input = document.getElementById(id);
+    let value = input.value.replace(/\D/g, "");
+  
+    let lastThree = value.slice(-3);
+    let otherNumbers = value.slice(0, -3);
+  
+    if (otherNumbers !== "") {
+      lastThree = "," + lastThree;
+    }
+  
+    let formattedValue =
+      otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+  
+    input.value = formattedValue;
+  }
+  
+  function formatNumberPDF(valuePDF) {
+    // Convert the value to a string
+    valuePDF = valuePDF.toString();
+  
+    // Check for a leading minus sign and remove any non-numeric characters except the minus sign
+    let isNegative = valuePDF.startsWith("-");
+    valuePDF = valuePDF.replace(/\D/g, ""); // Remove non-numeric characters
+  
+    // Reapply the minus sign if it was present
+    if (isNegative) {
+      valuePDF = "-" + valuePDF;
+    }
+  
+    // Format the value for commas
+    let lastThree = valuePDF.slice(-3);
+    let otherNumbers = valuePDF.slice(0, -3);
+  
+    if (otherNumbers !== "") {
+      lastThree = "," + lastThree;
+    }
+  
+    let formattedValue =
+      otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+  
+    return formattedValue;
+  }
+  
+  let first = false;
+  let second = false;
+  let selectElements = [
+    "percentage-select1",
+    "percentage-select2",
+    "percentage-select3",
+    "percentage-select4",
+    "percentage-select5",
+    "percentage-select6",
+    "percentage-select7",
+    "percentage-select8",
+    "percentage-select9",
+    "percentage-select10",
+  ];
+  let userInputes = [
+    "userInputrate1",
+    "userInputrate2",
+    "userInputrate3",
+    "userInputrate4",
+    "userInputrate5",
+    "userInputrate6",
+    "userInputrate7",
+    "userInputrate8",
+    "userInputrate9",
+    "userInputrate10",
+  ];
+  
+  selectElements = selectElements.map((id) => document.getElementById(id));
+  
+  // BCD Rate Functions
+  selectElements.forEach((e, index) => {
+    e.addEventListener("change", () => {
+      if (e.value == "others") {
+        document.getElementById(`userInputrate${index + 1}`).style.display =
+          "block";
+      } else {
+        document.getElementById(`userInputrate${index + 1}`).style.display =
+          "none";
+      }
+  
+      bcdRateElement =
+        document.querySelector(`#percentage-select${index + 1}`).value == "others"
+          ? document.querySelector(`#userInputrate${index + 1}`).value
+          : document.querySelector(`#percentage-select${index + 1}`).value;
+    });
+  });
+  
+  // Disposal Listeners
+  function setupDisposalListeners() {
+    document.querySelectorAll('select[id$="ms"]').forEach((select, index) => {
+      select.addEventListener("change", () => {
+        let rowLetter = String.fromCharCode(97 + index);
+        let intendedPeriodElement = document.querySelector(`#${rowLetter}ip`);
+  
+        if (select.value === "Sale in DTA") {
+          intendedPeriodElement.style.display = "block";
+        } else {
+          intendedPeriodElement.style.display = "none";
+        }
+      });
+    });
+  }
+  
+  document.addEventListener("DOMContentLoaded", setupDisposalListeners);
+  function resetAllSections() {
+    document.getElementById("cap-que").style.display = "none";
+    document.getElementById("capital-goods-next").style.display = "none";
+    document.getElementById("cap-table").style.display = "none";
+    document.getElementById("capital-goods-next2").style.display = "none";
+    document.getElementById("raw-table").style.display = "none";
+    document.getElementById("raw-materials-next2").style.display = "none";
+    document.getElementById("common-que").style.display = "none";
+    document.getElementById("raw-que").style.display = "none";
+    document.getElementById("raw-materials-next").style.display = "none";
+    document.querySelector(".calculate-conatiner").style.display = "none";
+    document.getElementById("download-report").style.display = "none";
+    document.querySelector(".preview-container").style.display = "none";
+  }
+  
+  document.getElementById("left-btn").addEventListener("click", () => {
+    document.getElementById("left-btn").style.background = "#2b55d3";
+    document.getElementById("right-btn").style.background = "#fff";
+    document.getElementById("cap-que").style.display = "block";
+    document.getElementById("raw-que").style.display = "none";
+    document.getElementById("cap-table").style.display = "none";
+    document.getElementById("infor").style.display = "none";
+    document.getElementById("raw-table").style.display = "none";
+    document.getElementById("capital-goods-next").style.display = "block";
+    document.getElementById("capital-goods-next2").style.display = "none";
+    first = true;
+  });
+  
+  document.getElementById("right-btn").addEventListener("click", () => {
+    document.getElementById("infor").style.display = "flex";
+    document.getElementById("right-btn").style.background = "#2b55d3";
+    document.getElementById("left-btn").style.background = "#fff";
+    document.getElementById("cap-table").style.display = "block";
+    document.getElementById("cap-que").style.display = "none";
+    document.getElementById("raw-que").style.display = "none";
+    document.getElementById("raw-table").style.display = "none";
+    document.getElementById("capital-goods-next2").style.display = "block";
+    document.getElementById("capital-goods-next").style.display = "none";
+    second = true;
+  });
+  
+  document.getElementById("capital-goods-next").addEventListener("click", () => {
+    document.getElementById("raw-que").style.display = "block";
+    document.getElementById("raw-materials-next").style.display = "block";
+  });
+  
+  document.getElementById("capital-goods-next2").addEventListener("click", () => {
+    document.getElementById("raw-table").style.display = "block";
+    document.getElementById("raw-materials-next2").style.display = "block";
+  });
+  
+  document.getElementById("raw-materials-next").addEventListener("click", () => {
+    document.getElementById("common-que").style.display = "block";
+    document.querySelector(".calculate-conatiner").style.display = "flex";
+  });
+  
+  document.getElementById("raw-materials-next2").addEventListener("click", () => {
+    document.getElementById("common-que").style.display = "block";
+    document.querySelector(".calculate-conatiner").style.display = "flex";
+  });
+  
+  function displayNone() {
+    if (document.getElementById("fourth-left-input").value == "Sale in DTA") {
+      document.querySelector(".fourth-left").style.display = "flex";
+    } else {
+      document.querySelector(".fourth-left").style.display = "none";
+    }
+  }
+  function safeParseFloat(value) {
+    if (typeof value !== "string") {
+      value = String(value);
+    }
+    return isNaN(parseFloat(value.replace(/,/g, "")))
+      ? 0
+      : parseFloat(value.replace(/,/g, ""));
+  }
+  
+  function firstCal() {
+    let grossCIF = safeParseFloat(
+      document.getElementById("first-left-input").value
+    );
+    let grossBCD = safeParseFloat(
+      document.getElementById("first-right-input").value
+    );
+    let grossSGD = safeParseFloat(document.getElementById("sgd").value);
+    let grossCWD = safeParseFloat(document.getElementById("cwd").value);
+    let grossAIDC = safeParseFloat(
+      document.getElementById("second-left-input").value
+    );
+    let grossADD = safeParseFloat(
+      document.getElementById("second-right-input").value
+    );
+    let grossIGST = safeParseFloat(
+      document.getElementById("third-left-input").value
+    );
+    let grossIntendedPeriod = safeParseFloat(
+      document.getElementById("third-right-input").value
+    );
+    let grossDisposal = document.getElementById("fourth-left-input").value;
+    let GrossSWS = safeParseFloat(
+      parseFloat((safeParseFloat(grossBCD) * 10) / 100)
+    );
+  
+    let grossCIF2 = safeParseFloat(
+      document.getElementById("first-left-input2").value
+    );
+    let grossBCD2 = safeParseFloat(
+      document.getElementById("first-right-input2").value
+    );
+    let grossSGD2 = safeParseFloat(document.getElementById("sgd2").value);
+    let grossCWD2 = safeParseFloat(document.getElementById("cwd2").value);
+    let grossAIDC2 = safeParseFloat(
+      document.getElementById("second-left-input2").value
+    );
+    let grossADD2 = safeParseFloat(
+      document.getElementById("second-right-input2").value
+    );
+    let grossIGST2 = safeParseFloat(
+      document.getElementById("third-left-input2").value
+    );
+    let GrossSWS2 = parseFloat((safeParseFloat(grossBCD2) * 10) / 100);
+    let lifeCycle = safeParseFloat(
+      document.getElementById("first-left-input3").value
+    );
+    let ExpectedAnnualGrowth = safeParseFloat(
+      document.getElementById("first-right-input3").value
+    );
+    let rateOfInterest = safeParseFloat(
+      document.getElementById("second-left-input3").value
+    );
+    let timeGap = safeParseFloat(
+      document.getElementById("second-right-input3").value
+    );
+    let annualValueofRoDTEP = safeParseFloat(
+      document.getElementById("third-left-input3").value
+    );
+    let GrossAnnualValue = safeParseFloat(
+      document.getElementById("third-right-input3").value
+    );
+    let conversionOfRaw = safeParseFloat(
+      document.getElementById("fourth-right-input3").value
+    );
+    let exportSales = safeParseFloat(
+      document.getElementById("export-sales").value
+    );
+    let domesticSales = safeParseFloat(
+      document.getElementById("domestic-sales").value
+    );
+  
+    console.log("grossCIF", grossCIF);
+    console.log("grossBCD", grossBCD);
+    console.log("grossSGD", grossSGD);
+    console.log("grossCWD", grossCWD);
+    console.log("grossAIDC", grossAIDC);
+    console.log("grossADD", grossADD);
+    console.log("grossIGST", grossIGST);
+    console.log("grossIntendedPeriod", grossIntendedPeriod);
+    console.log("grossDisposal", grossDisposal);
+    console.log("GrossSWS", GrossSWS);
+    console.log("grossCIF2", grossCIF2);
+    console.log("grossBCD2", grossBCD2);
+    console.log("grossSGD2", grossSGD2);
+    console.log("grossCWD2", grossCWD2);
+    console.log("grossAIDC2", grossAIDC2);
+    console.log("grossADD2", grossADD2);
+    console.log("grossIGST2", grossIGST2);
+    console.log("GrossSWS2", GrossSWS2);
+    console.log("lifeCycle", lifeCycle);
+    console.log("ExpectedAnnualGrowth", ExpectedAnnualGrowth);
+    console.log("rateOfInterest", rateOfInterest);
+    console.log("timeGap", timeGap);
+    console.log("annualValueofRoDTEP", annualValueofRoDTEP);
+    console.log("GrossAnnualValue", GrossAnnualValue);
+    console.log("conversionOfRaw", conversionOfRaw);
+    console.log("exportSales", exportSales);
+    console.log("domesticSales", domesticSales);
+  
+    let totalDuty =
+      safeParseFloat(GrossSWS) +
+      safeParseFloat(grossBCD) +
+      safeParseFloat(grossADD) +
+      safeParseFloat(grossAIDC) +
+      safeParseFloat(grossSGD) +
+      safeParseFloat(grossCWD);
+  
+    let totalNVP;
+    if (grossDisposal === "Sale in DTA") {
+      totalNVP =
+        (totalDuty /
+          Math.pow(
+            1 + safeParseFloat(rateOfInterest) / 100,
+            safeParseFloat(grossIntendedPeriod)
+          )) *
+        -1;
+    } else {
+      totalNVP = 0;
+    }
+  
+    let totalSavings =
+      safeParseFloat(grossIGST) *
+      (safeParseFloat(rateOfInterest) / 100) *
+      (safeParseFloat(timeGap) / 365);
+  
+    let RawTotalDuty =
+      safeParseFloat(grossBCD2) +
+      safeParseFloat(GrossSWS2) +
+      safeParseFloat(grossAIDC2) +
+      safeParseFloat(grossADD2) +
+      safeParseFloat(grossSGD2) +
+      safeParseFloat(grossCWD2);
+    console.log("GrossSWS", GrossSWS2);
+    console.log("grossCWD", grossCWD2);
+    console.log("grossBCD", grossBCD2);
+    console.log("grossSGD", grossSGD2);
+    console.log("grossAIDC", grossAIDC2);
+    console.log("grossADD", grossADD2);
+    console.log("GrossSWS2", safeParseFloat(GrossSWS2));
+    console.log("grossCWD2", safeParseFloat(grossCWD2));
+    console.log("grossBCD2", safeParseFloat(grossBCD2));
+    console.log("grossSGD2", safeParseFloat(grossSGD2));
+    console.log("grossAIDC2", safeParseFloat(grossAIDC2));
+    console.log("grossADD2", safeParseFloat(grossADD2));
+  
+    let D = 0;
+    let totalBenifit = 0;
+    let lastNPV = 0;
+    let npv;
+  
+    for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
+      totalBenifit =
+        RawTotalDuty *
+        (parseFloat(safeParseFloat(conversionOfRaw)) / 365) *
+        (parseFloat(safeParseFloat(rateOfInterest)) / 100);
+      if (D == 0) {
+        D = 1.09;
+      } else {
+        D = D * 1.09;
+      }
+      npv = totalBenifit / D;
+      lastNPV += npv;
+      RawTotalDuty = RawTotalDuty * 1.05;
+    }
+  
+    let Digst = 0;
+    let totalBenifitigst = 0;
+    let lastNPVigst = 0;
+    let npvigst;
+  
+    for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
+      totalBenifitigst =
+        safeParseFloat(grossIGST2) *
+        (parseFloat(safeParseFloat(timeGap)) / 365) *
+        (parseFloat(safeParseFloat(rateOfInterest)) / 100);
+      if (Digst == 0) {
+        Digst = 1.09;
+      } else {
+        Digst = Digst * 1.09;
+      }
+      npvigst = totalBenifitigst / Digst;
+      lastNPVigst += npvigst;
+      grossIGST2 = grossIGST2 * 1.05;
+    }
+  
+    let Drodtep = 0;
+    let totalBenifitrodtep = 0;
+    let lastNPVrodtep = 0;
+  
+    for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
+      if (Drodtep == 0) {
+        Drodtep = 1.09;
+      } else {
+        Drodtep = Drodtep * 1.09;
+      }
+      totalBenifitrodtep =
+        safeParseFloat(annualValueofRoDTEP) / safeParseFloat(Drodtep);
+      lastNPVrodtep += totalBenifitrodtep;
+      annualValueofRoDTEP = safeParseFloat(annualValueofRoDTEP) * 1.05;
+    }
+  
+    let Dair = 0;
+    let totalBenifitair = 0;
+    let lastNPVrair = 0;
+    let npvair;
+    for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
+      if (Dair == 0) {
+        Dair = 1.09;
+      } else {
+        Dair = Dair * 1.09;
+      }
+      totalBenifitair = safeParseFloat(GrossAnnualValue) / Dair;
+      npvair = totalBenifitair / Dair;
+      lastNPVrair += totalBenifitair;
+      GrossAnnualValue = safeParseFloat(GrossAnnualValue) * 1.05;
+    }
+    let totalBenifitRoDTEP = (lastNPVrodtep + lastNPVrair) * -1;
+  
+    let finishedGoods =
+      (safeParseFloat(exportSales) /
+        (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) *
+      RawTotalDuty;
+    console.log("exportSales", exportSales);
+    console.log("Formated exportSales", safeParseFloat(exportSales));
+    console.log("domesticSales", domesticSales);
+    console.log("formated domesticSales", safeParseFloat(domesticSales));
+    console.log("finishedGoods", finishedGoods);
+    console.log("totalDuty", RawTotalDuty);
+    console.log(
+      "safeParseFloat(exportSales)/(safeParseFloat(domesticSales)+safeParseFloat(exportSales)) * totalDuty;",
+      (safeParseFloat(exportSales) /
+        (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) *
+        RawTotalDuty
+    );
+  
+    updatePDFAndDownload(
+      "Sep 2024",
+      totalDuty.toFixed(),
+      totalNVP.toFixed(),
+      totalSavings.toFixed(),
+      lastNPV.toFixed(),
+      lastNPVigst.toFixed(),
+      parseFloat(totalBenifitRoDTEP).toFixed(),
+      finishedGoods.toFixed(),
+      (
+        totalDuty +
+        totalNVP +
+        totalSavings +
+        lastNPV +
+        lastNPVigst +
+        parseFloat(totalBenifitRoDTEP)
+      ).toFixed()
+    );
+  }
+  function calculateIndiValue() {
+    // Getting input values
+    let rateOfInterest = safeParseFloat(
+      document.getElementById("second-left-input3").value
+    );
+    let timeGap = safeParseFloat(
+      document.getElementById("second-right-input3").value
+    );
+    let lifeCycle = safeParseFloat(
+      document.getElementById("first-left-input3").value
+    );
+    let conversionOfRaw = safeParseFloat(
+      document.getElementById("fourth-right-input3").value
+    );
+    let annualValueofRoDTEP = safeParseFloat(
+      document.getElementById("third-left-input3").value
+    );
+    let GrossAnnualValue = safeParseFloat(
+      document.getElementById("third-right-input3").value
+    );
+    let ExpectedAnnualGrowth =
+      document.getElementById("first-right-input3").value;
+  
+    // Arrays for input values
+    let cifValues = [
+      safeParseFloat(document.getElementById("taaa").value),
+      safeParseFloat(document.getElementById("taba").value),
+      safeParseFloat(document.getElementById("taca").value),
+      safeParseFloat(document.getElementById("tada").value),
+      safeParseFloat(document.getElementById("taea").value),
+    ];
+    let sgdvalues = [
+      safeParseFloat(document.getElementById("sgda").value),
+      safeParseFloat(document.getElementById("sgdb").value),
+      safeParseFloat(document.getElementById("sgdc").value),
+      safeParseFloat(document.getElementById("sgdd").value),
+      safeParseFloat(document.getElementById("sgde").value),
+    ];
+    let sgdvalues2 = [
+      safeParseFloat(document.getElementById("sgdf").value),
+      safeParseFloat(document.getElementById("sgdg").value),
+      safeParseFloat(document.getElementById("sgdh").value),
+      safeParseFloat(document.getElementById("sgdi").value),
+      safeParseFloat(document.getElementById("sgdj").value),
+    ];
+    let cwdValues = [
+      safeParseFloat(document.getElementById("cwda").value),
+      safeParseFloat(document.getElementById("cwdb").value),
+      safeParseFloat(document.getElementById("cwdc").value),
+      safeParseFloat(document.getElementById("cwdd").value),
+      safeParseFloat(document.getElementById("cwde").value),
+    ];
+    let cwdvalues2 = [
+      safeParseFloat(document.getElementById("cwdf").value),
+      safeParseFloat(document.getElementById("cwdg").value),
+      safeParseFloat(document.getElementById("cwdh").value),
+      safeParseFloat(document.getElementById("cwdi").value),
+      safeParseFloat(document.getElementById("cwdj").value),
+    ];
+    let aidcRates = [
+      safeParseFloat(document.getElementById("taidcab").value),
+      safeParseFloat(document.getElementById("taidcbb").value),
+      safeParseFloat(document.getElementById("taidccb").value),
+      safeParseFloat(document.getElementById("taidcdb").value),
+      safeParseFloat(document.getElementById("taidceb").value),
+    ];
+  
+    let addRates = [
+      safeParseFloat(document.getElementById("tddac").value),
+      safeParseFloat(document.getElementById("tddbc").value),
+      safeParseFloat(document.getElementById("tddcc").value),
+      safeParseFloat(document.getElementById("tdddc").value),
+      safeParseFloat(document.getElementById("tddec").value),
+    ];
+  
+    let igstRates = [
+      safeParseFloat(document.getElementById("tigstad").value),
+      safeParseFloat(document.getElementById("tigstbd").value),
+      safeParseFloat(document.getElementById("tigstcd").value),
+      safeParseFloat(document.getElementById("tigstdd").value),
+      safeParseFloat(document.getElementById("tigsted").value),
+    ];
+  
+    let intendedPeriods = [
+      safeParseFloat(document.getElementById("aip").value),
+      safeParseFloat(document.getElementById("bip").value),
+      safeParseFloat(document.getElementById("cip").value),
+      safeParseFloat(document.getElementById("dip").value),
+      safeParseFloat(document.getElementById("eip").value),
+    ];
+  
+    let cifValues2 = [
+      safeParseFloat(document.getElementById("taaa2").value),
+      safeParseFloat(document.getElementById("taba2").value),
+      safeParseFloat(document.getElementById("taca2").value),
+      safeParseFloat(document.getElementById("tada2").value),
+      safeParseFloat(document.getElementById("taea2").value),
+    ];
+  
+    let aidcRates2 = [
+      safeParseFloat(document.getElementById("taidcab2").value),
+      safeParseFloat(document.getElementById("taidcbb2").value),
+      safeParseFloat(document.getElementById("taidccb2").value),
+      safeParseFloat(document.getElementById("taidcdb2").value),
+      safeParseFloat(document.getElementById("taidceb2").value),
+    ];
+  
+    let addRates2 = [
+      safeParseFloat(document.getElementById("tddac2").value),
+      safeParseFloat(document.getElementById("tddbc2").value),
+      safeParseFloat(document.getElementById("tddcc2").value),
+      safeParseFloat(document.getElementById("tdddc2").value),
+      safeParseFloat(document.getElementById("tddec2").value),
+    ];
+  
+    let igstRates2 = [
+      safeParseFloat(document.getElementById("tigstad2").value),
+      safeParseFloat(document.getElementById("tigstbd2").value),
+      safeParseFloat(document.getElementById("tigstcd2").value),
+      safeParseFloat(document.getElementById("tigstdd2").value),
+      safeParseFloat(document.getElementById("tigsted2").value),
+    ];
+    let exportSales = safeParseFloat(
+      document.getElementById("export-sales").value
+    );
+    let domesticSales = safeParseFloat(
+      document.getElementById("domestic-sales").value
+    );
+    let finishedGoods2 =
+      (safeParseFloat(exportSales) /
+        (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) *
+      RawTotalDuty;
+  
+    let customDuty = 0;
+    let totalSavings = 0;
+    let npv = 0;
+  
+    // Calculations for the first set of values
+    for (let i = 0; i < 5; i++) {
+      let bcdRate;
+      if (
+        document.querySelector(`#percentage-select${i + 1}`).value == "others"
+      ) {
+        bcdRate = parseFloat(
+          document.getElementById(`userInputrate${i + 1}`).value
+        );
+      } else {
+        bcdRate = safeParseFloat(
+          document.querySelector(`#percentage-select${i + 1}`).value
+        );
+      }
+      if (bcdRate == NaN) {
+        bcdRate = 0;
+      }
+      let BCD = cifValues[i] * (bcdRate / 100);
+      let SWS = (BCD * 10) / 100;
+      let AIDC = cifValues[i] * (aidcRates[i] / 100);
+      let ADD = (addRates[i] / 100) * cifValues[i];
+      let CWD = cwdValues[i];
+      let SGD = sgdvalues[i];
+      customDuty += BCD + SWS + AIDC + ADD + CWD + SGD;
+      console.log(
+        " BCD + SWS + AIDC + ADD + CWD + SGD",
+        BCD,
+        SWS,
+        AIDC,
+        ADD,
+        CWD,
+        SGD
+      );
+      // NPV calculation
+      if (intendedPeriods[i] !== 0) {
+        npv +=
+          (customDuty / Math.pow(1 + rateOfInterest / 100, intendedPeriods[i])) *
+          -1;
+      }
+  
+      // Total savings
+      totalSavings += (igstRates[i] * (rateOfInterest / 100) * timeGap) / 365;
+    }
+  
+    // Raw material total duty calculation
+    let customDuty2 = 0;
+    for (let i = 0; i < 5; i++) {
+      let bcdRate2;
+      if (
+        document.querySelector(`#percentage-select${i + 6}`).value == "others"
+      ) {
+        bcdRate2 = parseFloat(
+          document.getElementById(`userInputrate${i + 6}`).value
+        );
+      } else {
+        bcdRate2 = safeParseFloat(
+          document.querySelector(`#percentage-select${i + 6}`).value
+        );
+      }
+      if (bcdRate2 == NaN) {
+        bcdRate2 = 0;
+      }
+  
+      let BCD2 = cifValues2[i] * (bcdRate2 / 100);
+      let SWS2 = (BCD2 * 10) / 100;
+      let AIDC2 = cifValues2[i] * (aidcRates2[i] / 100);
+      let ADD2 = (addRates2[i] / 100) * cifValues2[i];
+      let CWD2 = cwdvalues2[i];
+      let SGD2 = sgdvalues2[i];
+      customDuty2 += BCD2 + SWS2 + AIDC2 + ADD2 + CWD2 + SGD2;
+      console.log(
+        " BCD + SWS + AIDC + ADD + CWD + SGD",
+        BCD2,
+        SWS2,
+        AIDC2,
+        ADD2,
+        CWD2,
+        SGD2
+      );
+    }
+  
+    // NPV calculations for machinery scenarios
+    let D = 0;
+    let totalBenifit = 0;
+    let lastNPV = 0;
+    for (let i = 0; i < lifeCycle; i++) {
+      totalBenifit =
+        customDuty2 * (conversionOfRaw / 365) * (rateOfInterest / 100);
+      D = D === 0 ? 1.09 : D * 1.09;
+      lastNPV += totalBenifit / D;
+      customDuty2 = customDuty2 * 1.05;
+    }
+  
+    // IGST NPV calculation
+    let Digst = 0;
+    let totalBenifitigst = 0;
+    let lastNPVigst = 0;
+    let npvigst;
+  
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < lifeCycle; j++) {
+        totalBenifitigst =
+          igstRates2[i] * (timeGap / 365) * (rateOfInterest / 100);
+        Digst = Digst === 0 ? 1.09 : Digst * 1.09;
+        npvigst = totalBenifitigst / Digst;
+        lastNPVigst += npvigst;
+        igstRates2[i] = igstRates2[i] * 1.05;
+      }
+    }
+    // RoDTEP NPV calculation
+    let Drodtep = 0;
+    let totalBenifitrodtep = 0;
+    let lastNPVrodtep = 0;
+  
+    for (let i = 0; i < lifeCycle; i++) {
+      Drodtep = Drodtep === 0 ? 1.09 : Drodtep * 1.09;
+      totalBenifitrodtep = annualValueofRoDTEP / Drodtep;
+      lastNPVrodtep += totalBenifitrodtep;
+      annualValueofRoDTEP = annualValueofRoDTEP * 1.05;
+    }
+    // AIR value NPV calculation
+    let Dair = 0;
+    let totalBenifitair = 0;
+    let lastNPVrair = 0;
+  
+    for (let i = 0; i < lifeCycle; i++) {
+      Dair = Dair === 0 ? 1.09 : Dair * 1.09;
+      totalBenifitair = GrossAnnualValue / Dair;
+      lastNPVrair += totalBenifitair;
+      GrossAnnualValue = GrossAnnualValue * 1.05;
+    }
+    let totalBenifitRoDTEP = (lastNPVrodtep + lastNPVrair) * -1;
+  
+    let finishedGoods =
+      (safeParseFloat(exportSales) /
+        (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) *
+      customDuty;
+    console.log("finishedGoods", finishedGoods);
+    console.log("domesticSales", domesticSales);
+    console.log(
+      "safeParseFloat(exportSales)/(safeParseFloat(domesticSales)+safeParseFloat(exportSales)) * totalDuty;",
+      (safeParseFloat(exportSales) /
+        (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) *
+        customDuty
+    );
+  
+    // Final output logs
+    updatePDFAndDownload(
+      "Sep 2024",
+      customDuty.toFixed(),
+      npv.toFixed(),
+      totalSavings.toFixed(),
+      lastNPV.toFixed(),
+      lastNPVigst.toFixed(),
+      finishedGoods2.toFixed(),
+      parseFloat(totalBenifitRoDTEP).toFixed(),
+      (
+        customDuty +
+        npv +
+        totalSavings +
+        lastNPV +
+        lastNPVigst +
+        parseFloat(totalBenifitRoDTEP)
+      ).toFixed()
+    );
+  }
+  async function updatePDFAndDownload(
+    value0,
+    value1,
+    value2,
+    value3,
+    value4,
+    value5,
+    value6,
+    value7,
+    value8
+  ) {
+    // const url = "<?php echo get_template_directory_uri(); ?>/test.pdf";
+    let url;
+    if (value8 >= 0) {
+      url = "Profit.pdf";
+    } else {
+      url = "Loss.pdf";
+    }
+  
+    const existingPdfBytes = await fetch(url).then((res) => res.arrayBuffer());
+  
+    const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+  
+    const zero = pdfDoc.getPages()[0];
+    const firstPage = pdfDoc.getPages()[1];
+  
+    zero.drawText(value0.toString(), {
+      x: 60,
+      y: 590,
+      size: 24,
+      color: PDFLib.rgb(1, 0, 0),
+    });
+  
+    firstPage.drawText(formatNumberPDF(value1).toString(), {
+      x: 437,
+      y: 674,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+    firstPage.drawText(formatNumberPDF(value2).toString(), {
+      x: 437,
+      y: 655,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+    firstPage.drawText(formatNumberPDF(value3).toString(), {
+      x: 437,
+      y: 635,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+    firstPage.drawText(formatNumberPDF(value4).toString(), {
+      x: 437,
+      y: 600,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+    firstPage.drawText(formatNumberPDF(value5).toString(), {
+      x: 437,
+      y: 582,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+    firstPage.drawText(formatNumberPDF(value6).toString(), {
+      x: 437,
+      y: 563,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+    firstPage.drawText(formatNumberPDF(value7).toString(), {
+      x: 437,
+      y: 544,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+    firstPage.drawText(formatNumberPDF(value8).toString(), {
+      x: 437,
+      y: 524,
+      size: 12,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+  
+    const pdfBytes = await pdfDoc.save();
+    const pdfUrl = URL.createObjectURL(
+      new Blob([pdfBytes], { type: "application/pdf" })
+    );
+  
+    const previewContainer = document.querySelector(".preview-container");
+    previewContainer.innerHTML = `<embed src="${pdfUrl}" width="100%" height="100%" type="application/pdf">`;
+  
+    document.getElementById("download-report").style.display = "block";
+  
+    document
+      .getElementById("download-report")
+      .addEventListener("click", function () {
+        document.getElementById("custom-feedback-modal").style.display = "block";
+      });
+  
+    document.getElementById("skip").addEventListener("click", function () {
+      document.getElementById("custom-feedback-modal").style.display = "none";
+      downloadPDF(pdfUrl);
+    });
+    document
+      .getElementById("submit-download")
+      .addEventListener("click", function () {
+        document.getElementById("custom-feedback-modal").style.display = "none";
+        downloadPDF(pdfUrl);
+      });
+  
+    document
+      .getElementById("feedback-form")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+  
+        const userName = document.getElementById("user-name").value;
+        const userEmail = document.getElementById("user-email").value;
+        const experience = Array.from(
+          document.querySelectorAll('input[name="experience"]:checked')
+        ).map((el) => el.value);
+        const userFeedback = document.getElementById("user-feedback").value;
+        const newsletterOptIn =
+          document.getElementById("newsletter-opt-in").checked;
+  
+        jQuery.ajax({
+          url: ajax_object.ajax_url,
+          type: "POST",
+          data: {
+            action: "submit_feedback",
+            security: ajax_object.nonce,
+            name: userName,
+            email: userEmail,
+            experience: experience,
+            feedback: userFeedback,
+            newsletter_opt_in: newsletterOptIn ? 1 : 0,
+          },
+          success: function (response) {
+            if (response.success) {
+              alert(response.data);
+              document.getElementById("custom-feedback-modal").style.display =
+                "none";
+              downloadPDF(pdfUrl);
+            } else {
+              alert("There was an error submitting the form. Please try again.");
+            }
+          },
+          error: function () {
+            alert("An unexpected error occurred. Please try again.");
+          },
+        });
+      });
+  }
+  
+  // Function to handle PDF download
+  function downloadPDF(pdfUrl) {
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "Optitx's Report.pdf";
+    link.click();
+  
+    setInterval(function () {
+      location.reload();
+    }, 1000);
+  }
+  
+  document.getElementById("calculate").addEventListener("click", () => {
+    document.getElementById("download-report").style.display = "flex";
+    document.querySelector(".preview-container").style.display = "block";
+    if (first == true && second == false) {
+      firstCal();
+    } else if (first == false && second == true) {
+      calculateIndiValue();
+    }
+  });
+  
+</script>
   </body>
 </html>
