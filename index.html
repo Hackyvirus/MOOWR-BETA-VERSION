@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+/* 
+Template Name: Calculator 19-9-2024
+*/
+get_header(); 
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -561,6 +566,7 @@
       @media only screen and (min-width: 350px) and (max-width: 600px) {
         body {
           font-size: 18px; /* Increase font size for tablets */
+          background-color: red;
         }
         .main-container {
           padding: 10px;
@@ -739,7 +745,7 @@
         .left-main,
         .right-main {
           width: 90%;
-          text-align: left;
+          text-align: center;
           justify-content: space-evenly;
           height: 50%;
           margin: auto;
@@ -1000,7 +1006,7 @@
       <div class="right-main">
         <i>Brought to you by the authors of </i>
         <!-- <img src="<?php echo get_template_directory_uri(); ?>/images/image.png" onerror="this.onerror=null; this.src='src="images\image.png" alt="Tax Calculator" /> -->
-        <img src="image.png" onerror="this.onerror=null; this.src='src="images\image.png" alt="Tax Calculator" />
+        <img src="images/image.png" onerror="this.onerror=null; this.src='src="images\image.png" alt="Tax Calculator" />
       </div>
     </div>
 
@@ -1060,7 +1066,7 @@
       document.getElementById("acceptBtn").addEventListener("click", () => {
         if (document.getElementById("checkbox").checked) {
           window.location.href =
-            "https://hackyvirus.github.io/MOOWR-BETA-VERSION/calculator.html";
+            "https://optitaxs.com/services/tax-optimization-matrix/moowr-calculator";
         } else {
           alert("Please accept the terms and conditions");
         }
@@ -1092,4 +1098,7 @@
       });
     </script>
   </body>
+  <?php
+get_footer();
+?>
 </html>
