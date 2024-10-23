@@ -1,3 +1,9 @@
+<?php
+/* 
+Template Name: MOOWR Main Calculator
+*/
+get_header(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,10 +17,14 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+
     <style>
       a{
         text-decoration: none;
       }
+      .left-bottom a,.faq a{
+color: #0056b3;
+  }
       * {
         padding: 0;
         box-sizing: border-box;
@@ -1079,8 +1089,10 @@ textarea:focus {
 
   .left-btn, .right-btn {
     width: 100%;
+
     margin-bottom: 10px;
   }
+
 
   #cap-table table {
     width: 100%;
@@ -1138,10 +1150,12 @@ textarea:focus {
     max-width: 100%;
 }
 .fifty {
-    width: 90%;
+    width: 100%;
     height: max-content;
     line-height: 30px;
     padding-left: 10px;
+    display: flex;
+    justify-content: center;
 }
 .first-left, .second-left, .third-left, .first-right, .second-right, .third-right, .fourth-left, .fourth-right {
     display: flex;
@@ -1167,10 +1181,10 @@ textarea:focus {
     line-height: 1.2em;
     font-weight: 400;
     padding: 12px;
+    width: 100%;
     font-size: 14px;
     flex-grow: 1;
     padding-left: 10px;
-    width: 75%;
 }
 #common-questions-container {
     display: block;
@@ -1243,14 +1257,14 @@ textarea:focus {
                 <li>
                   Guide to use
                   <strong
-                    ><a href="https://github.com/Hackyvirus/MOOWR-BETA-VERSION/blob/main/need-help.html" style="text-decoration: underline"
+                    ><a href="https://optitaxs.com/moowr-need-help/" style="text-decoration: underline"
                       >Duty Saving Calculator</a
                     ></strong
                   >
                 </li>
                 <li>
                   <strong
-                    ><a href="https://github.com/Hackyvirus/MOOWR-BETA-VERSION/blob/main/faq.html" style="text-decoration: underline"
+                    ><a href="https://optitaxs.com/moowr-scheme-faqs/" style="text-decoration: underline"
                       >FAQs</a
                     ></strong
                   >
@@ -1261,7 +1275,7 @@ textarea:focus {
           <h1>Duty Saving Calculator - MOOWR Scheme</h1>
           <div class="right-div">
             <!-- <img src="<?php echo get_template_directory_uri(); ?>/images/12.avif" onerror="this.onerror=null; this.src='logo.svg'" alti id="logo" alt="logo" /> -->
-            <img src="img/12.avif" alt="logo" />
+            <img src="images/12.avif" alt="logo" />
           </div>
         </div>
 
@@ -3049,8 +3063,8 @@ textarea:focus {
       </div>
     </main>
     <div class="faq">
-      <a href="https://github.com/Hackyvirus/MOOWR-BETA-VERSION/blob/main/need-help.html">Need Help?</a>
-      <a href="https://github.com/Hackyvirus/MOOWR-BETA-VERSION/blob/main/faq.html/">FAQs</a>
+      <a href="https://optitaxs.com/moowr-need-help/">Need Help?</a>
+      <a href="https://optitaxs.com/moowr-scheme-faqs/">FAQs</a>
     </div>
     <div id="custom-feedback-modal" class="modal-container">
         <div class="modal-box">
@@ -3269,12 +3283,17 @@ document.getElementById("right-btn").addEventListener("click", () => {
   document.getElementById("infor").style.display = "flex";
   document.getElementById("right-btn").style.background = "#2b55d3";
   document.getElementById("left-btn").style.background = "#fff";
-  document.getElementById("cap-table").style.display = "block";
-  document.getElementById("cap-que").style.display = "none";
-  document.getElementById("raw-que").style.display = "none";
-  document.getElementById("raw-table").style.display = "none";
   document.getElementById("capital-goods-next2").style.display = "block";
   document.getElementById("capital-goods-next").style.display = "none";
+
+  document.getElementById("cap-table").style.display = "block";
+  document.getElementById("cap-que").style.display = "none";
+  document.getElementById("raw-materials-next").style.display = "none";
+  document.getElementById("common-que").style.display = "none";
+  document.getElementById("calculate").style.display = "none";
+  document.getElementById("raw-que").style.display = "none";
+  document.getElementById("raw-table").style.display = "none";
+ 
   second = true;
 });
 
@@ -3295,6 +3314,7 @@ document.getElementById("raw-materials-next").addEventListener("click", () => {
 
 document.getElementById("raw-materials-next2").addEventListener("click", () => {
   document.getElementById("common-que").style.display = "block";
+  document.getElementById("calculate").style.display = "block";
   document.querySelector(".calculate-conatiner").style.display = "flex";
 });
 
@@ -3386,16 +3406,16 @@ function firstCal() {
     document.getElementById("domestic-sales").value
   );
 
-  console.log("grossCIF", grossCIF);
-  console.log("grossBCD", grossBCD);
-  console.log("grossSGD", grossSGD);
-  console.log("grossCWD", grossCWD);
-  console.log("grossAIDC", grossAIDC);
-  console.log("grossADD", grossADD);
-  console.log("grossIGST", grossIGST);
-  console.log("grossIntendedPeriod", grossIntendedPeriod);
-  console.log("grossDisposal", grossDisposal);
-  console.log("GrossSWS", GrossSWS);
+  // console.log("grossCIF", grossCIF);
+  // console.log("grossBCD", grossBCD);
+  // console.log("grossSGD", grossSGD);
+  // console.log("grossCWD", grossCWD);
+  // console.log("grossAIDC", grossAIDC);
+  // console.log("grossADD", grossADD);
+  // console.log("grossIGST", grossIGST);
+  // console.log("grossIntendedPeriod", grossIntendedPeriod);
+  // console.log("grossDisposal", grossDisposal);
+  // console.log("GrossSWS", GrossSWS);
   console.log("grossCIF2", grossCIF2);
   console.log("grossBCD2", grossBCD2);
   console.log("grossSGD2", grossSGD2);
@@ -3447,12 +3467,12 @@ function firstCal() {
     safeParseFloat(grossADD2) +
     safeParseFloat(grossSGD2) +
     safeParseFloat(grossCWD2);
-  console.log("GrossSWS", GrossSWS2);
-  console.log("grossCWD", grossCWD2);
-  console.log("grossBCD", grossBCD2);
-  console.log("grossSGD", grossSGD2);
-  console.log("grossAIDC", grossAIDC2);
-  console.log("grossADD", grossADD2);
+  // console.log("GrossSWS", GrossSWS2);
+  // console.log("grossCWD", grossCWD2);
+  // console.log("grossBCD", grossBCD2);
+  // console.log("grossSGD", grossSGD2);
+  // console.log("grossAIDC", grossAIDC2);
+  // console.log("grossADD", grossADD2);
   console.log("GrossSWS2", safeParseFloat(GrossSWS2));
   console.log("grossCWD2", safeParseFloat(grossCWD2));
   console.log("grossBCD2", safeParseFloat(grossBCD2));
@@ -3464,26 +3484,24 @@ function firstCal() {
   let totalBenifit = 0;
   let lastNPV = 0;
   let npv;
-
+  let tempRaw = RawTotalDuty;
   for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
     totalBenifit =
-      RawTotalDuty *
+      tempRaw *
       (parseFloat(safeParseFloat(conversionOfRaw)) / 365) *
       (parseFloat(safeParseFloat(rateOfInterest)) / 100);
     if (E == 0) {
-      E = (safeParseFloat(rateOfInterest)/100+1);
-      console.log("E1",E);
-      
-      
+      E = safeParseFloat(rateOfInterest) / 100 + 1;
+      // console.log("E1", E);
     } else {
       // console.log("e BEFORE ",E)
-      E = E* ((safeParseFloat(rateOfInterest)/100+1));
-      console.log("D2",E);
+      E = E * (safeParseFloat(rateOfInterest) / 100 + 1);
+      // console.log("D2", E);
       // console.log("rateOfInterest",rateOfInterest);
     }
     npv = totalBenifit / E;
     lastNPV += npv;
-    RawTotalDuty = RawTotalDuty * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    tempRaw = tempRaw * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
 
   let Digst = 0;
@@ -3497,13 +3515,13 @@ function firstCal() {
       (parseFloat(safeParseFloat(timeGap)) / 365) *
       (parseFloat(safeParseFloat(rateOfInterest)) / 100);
     if (Digst == 0) {
-      Digst = (safeParseFloat(rateOfInterest)/100+1);
+      Digst = safeParseFloat(rateOfInterest) / 100 + 1;
     } else {
-      Digst = Digst * (safeParseFloat(rateOfInterest)/100+1);
+      Digst = Digst * (safeParseFloat(rateOfInterest) / 100 + 1);
     }
     npvigst = totalBenifitigst / Digst;
     lastNPVigst += npvigst;
-    grossIGST2 = grossIGST2 * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    grossIGST2 = grossIGST2 * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
 
   let Drodtep = 0;
@@ -3512,14 +3530,16 @@ function firstCal() {
 
   for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
     if (Drodtep == 0) {
-      Drodtep = (safeParseFloat(rateOfInterest)/100+1);
+      Drodtep = safeParseFloat(rateOfInterest) / 100 + 1;
     } else {
-      Drodtep = Drodtep * (safeParseFloat(rateOfInterest)/100+1);
+      Drodtep = Drodtep * (safeParseFloat(rateOfInterest) / 100 + 1);
     }
     totalBenifitrodtep =
       safeParseFloat(annualValueofRoDTEP) / safeParseFloat(Drodtep);
     lastNPVrodtep += totalBenifitrodtep;
-    annualValueofRoDTEP = safeParseFloat(annualValueofRoDTEP) * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    annualValueofRoDTEP =
+      safeParseFloat(annualValueofRoDTEP) *
+      (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
 
   let Dair = 0;
@@ -3528,14 +3548,16 @@ function firstCal() {
   let npvair;
   for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
     if (Dair == 0) {
-      Dair = (safeParseFloat(rateOfInterest)/100+1);
+      Dair = safeParseFloat(rateOfInterest) / 100 + 1;
     } else {
-      Dair = Dair * (safeParseFloat(rateOfInterest)/100+1);
+      Dair = Dair * (safeParseFloat(rateOfInterest) / 100 + 1);
     }
     totalBenifitair = safeParseFloat(GrossAnnualValue) / Dair;
     npvair = totalBenifitair / Dair;
     lastNPVrair += totalBenifitair;
-    GrossAnnualValue = safeParseFloat(GrossAnnualValue) * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    GrossAnnualValue =
+      safeParseFloat(GrossAnnualValue) *
+      (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
   let totalBenifitRoDTEP = (lastNPVrodtep + lastNPVrair) * -1;
 
@@ -3543,21 +3565,24 @@ function firstCal() {
   let finishedGoods = 0;
   let lastNPVF = 0;
   let npvF;
-
+  finishedGoods = ((exportSales) / ((domesticSales) + (exportSales))) *
+    RawTotalDuty;
+    
   for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
-    finishedGoods =(safeParseFloat(exportSales) / (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) * RawTotalDuty;
     if (DF == 0) {
-      DF = (safeParseFloat(rateOfInterest)/100+1);
-      console.log("Dair1",DF)
+      DF =1;
+      console.log("Dair1", DF);
     } else {
-      DF = DF * (safeParseFloat(rateOfInterest)/100+1);
-      console.log("Dair2",DF);
-
+      DF = DF * 1.09;
+      console.log("Dair2", DF);
     }
     npvF = finishedGoods / DF;
+    console.log("npvF", npvF);
     lastNPVF += npvF;
     console.log("lastNPVF", lastNPVF);
-    finishedGoods = finishedGoods * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+      console.log("finishedGoods",finishedGoods)
+    finishedGoods =
+      finishedGoods * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1)
   }
 
   console.log("exportSales", lastNPVF);
@@ -3588,7 +3613,7 @@ function firstCal() {
       totalSavings +
       lastNPV +
       lastNPVigst +
-      parseFloat(totalBenifitRoDTEP)
+      parseFloat(totalBenifitRoDTEP) + finishedGoods
     ).toFixed()
   );
 }
@@ -3720,10 +3745,6 @@ function calculateIndiValue() {
   let domesticSales = safeParseFloat(
     document.getElementById("domestic-sales").value
   );
-  let finishedGoods2 =
-    (safeParseFloat(exportSales) /
-      (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) *
-    RawTotalDuty;
 
   let customDuty = 0;
   let totalSavings = 0;
@@ -3817,9 +3838,13 @@ function calculateIndiValue() {
   for (let i = 0; i < lifeCycle; i++) {
     totalBenifit =
       customDuty2 * (conversionOfRaw / 365) * (rateOfInterest / 100);
-    D = D === 0 ? (safeParseFloat(rateOfInterest)/100+1) : D * (safeParseFloat(rateOfInterest)/100+1);
+    D =
+      D === 0
+        ? safeParseFloat(rateOfInterest) / 100 + 1
+        : D * (safeParseFloat(rateOfInterest) / 100 + 1);
     lastNPV += totalBenifit / D;
-    customDuty2 = customDuty2 * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    customDuty2 =
+      customDuty2 * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
 
   // IGST NPV calculation
@@ -3832,10 +3857,14 @@ function calculateIndiValue() {
     for (let j = 0; j < lifeCycle; j++) {
       totalBenifitigst =
         igstRates2[i] * (timeGap / 365) * (rateOfInterest / 100);
-      Digst = Digst === 0 ? (safeParseFloat(rateOfInterest)/100+1) : Digst * (safeParseFloat(rateOfInterest)/100+1);
+      Digst =
+        Digst === 0
+          ? safeParseFloat(rateOfInterest) / 100 + 1
+          : Digst * (safeParseFloat(rateOfInterest) / 100 + 1);
       npvigst = totalBenifitigst / Digst;
       lastNPVigst += npvigst;
-      igstRates2[i] = igstRates2[i] * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+      igstRates2[i] =
+        igstRates2[i] * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
     }
   }
   // RoDTEP NPV calculation
@@ -3844,10 +3873,14 @@ function calculateIndiValue() {
   let lastNPVrodtep = 0;
 
   for (let i = 0; i < lifeCycle; i++) {
-    Drodtep = Drodtep === 0 ? (safeParseFloat(rateOfInterest)/100+1) : Drodtep * (safeParseFloat(rateOfInterest)/100+1);
+    Drodtep =
+      Drodtep === 0
+        ? safeParseFloat(rateOfInterest) / 100 + 1
+        : Drodtep * (safeParseFloat(rateOfInterest) / 100 + 1);
     totalBenifitrodtep = annualValueofRoDTEP / Drodtep;
     lastNPVrodtep += totalBenifitrodtep;
-    annualValueofRoDTEP = annualValueofRoDTEP * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    annualValueofRoDTEP =
+      annualValueofRoDTEP * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
   // AIR value NPV calculation
   let Dair = 0;
@@ -3855,13 +3888,16 @@ function calculateIndiValue() {
   let lastNPVrair = 0;
 
   for (let i = 0; i < lifeCycle; i++) {
-    Dair = Dair === 0 ? (safeParseFloat(rateOfInterest)/100+1) : Dair * (safeParseFloat(rateOfInterest)/100+1);
+    Dair =
+      Dair === 0
+        ? safeParseFloat(rateOfInterest) / 100 + 1
+        : Dair * (safeParseFloat(rateOfInterest) / 100 + 1);
     totalBenifitair = GrossAnnualValue / Dair;
     lastNPVrair += totalBenifitair;
-    GrossAnnualValue = GrossAnnualValue * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    GrossAnnualValue =
+      GrossAnnualValue * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
   let totalBenifitRoDTEP = (lastNPVrodtep + lastNPVrair) * -1;
-
 
   let DF = 0;
   let finishedGoods = 0;
@@ -3869,19 +3905,22 @@ function calculateIndiValue() {
   let npvF;
 
   for (let i = 0; i < parseFloat(safeParseFloat(lifeCycle)); i++) {
-    finishedGoods =(safeParseFloat(exportSales) / (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) * RawTotalDuty;
+    finishedGoods =
+      (safeParseFloat(exportSales) /
+        (safeParseFloat(domesticSales) + safeParseFloat(exportSales))) *
+        customDuty;
     if (DF == 0) {
-      DF = (safeParseFloat(rateOfInterest)/100+1);
-      console.log("Dair1",DF)
+      DF = safeParseFloat(rateOfInterest) / 100 + 1;
+      console.log("Dair1", DF);
     } else {
-      DF = DF * (safeParseFloat(rateOfInterest)/100+1);
-      console.log("Dair2",DF);
-
+      DF = DF * (safeParseFloat(rateOfInterest) / 100 + 1);
+      console.log("Dair2", DF);
     }
     npvF = finishedGoods / DF;
     lastNPVF += npvF;
     console.log("lastNPVF", lastNPVF);
-    finishedGoods = finishedGoods * (safeParseFloat(ExpectedAnnualGrowth)/100+1);
+    finishedGoods =
+      finishedGoods * (safeParseFloat(ExpectedAnnualGrowth) / 100 + 1);
   }
 
   console.log("exportSales", lastNPVF);
@@ -3889,7 +3928,7 @@ function calculateIndiValue() {
   console.log("domesticSales", domesticSales);
   console.log("formated domesticSales", safeParseFloat(domesticSales));
   console.log("finishedGoods", finishedGoods);
-  console.log("totalDuty", RawTotalDuty);
+  console.log("totalDuty", customDuty);
   console.log(
     "safeParseFloat(exportSales)/(safeParseFloat(domesticSales)+safeParseFloat(exportSales)) * totalDuty;",
     (safeParseFloat(exportSales) /
@@ -3986,7 +4025,7 @@ async function updatePDFAndDownload(
     size: 12,
     color: PDFLib.rgb(0, 0, 0),
   });
-  firstPage.drawText((value7).toString(), {
+  firstPage.drawText(formatNumberPDF(value7).toString(), {
     x: 437,
     y: 544,
     size: 12,
@@ -4093,4 +4132,7 @@ document.getElementById("calculate").addEventListener("click", () => {
 
 </script>
   </body>
+  <?php
+  get_footer();
+  ?>
 </html>
